@@ -10,4 +10,4 @@ The aim of this project is to design a hotel management system for running a hot
 A hotel is a hive of operations that include front desk, booking and reservations, banquets, finance, HR, inventory, material management, quality management, security, energy management, housekeeping, and others. All these operations occur at the same time, making manual management impossible.
 
 ### Project Technology:
->>>>>>> 42f9725b6be2e53b980b6d5ec1223add48e626b3
+I will be creating an Android application designed for effortless accessibility and user-friendly usage.
