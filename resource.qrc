@@ -1,0 +1,19 @@
+<RCC>
+  <qresource prefix="images">
+    <file>Images/Mobile-login-Cristina.jpg</file>
+    <file>Images/icons8-close-480.png</file>
+    <file>Images/icons8-square-100.png</file>
+    <file>Images/2853458.jpg</file>
+    <file>Images/man-line-icon.png</file>
+    <file>Images/add-file-icon.png</file>
+    <file>Images/addFileR.png</file>
+    <file>Images/closeBtn (2).png</file>
+    <file>Images/direction-arrow-right-icon.png</file>
+    <file>Images/folder-check-icon.png</file>
+    <file>Images/minus-icon.png</file>
+    <file>Images/HomeR.png</file>
+    <file>Images/Resize.png</file>
+    <file>Images/SettingR.png</file>
+    <file>Images/setting-removebg-preview.png</file>
+  </qresource>
+</RCC>
