@@ -1,5 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidgetItem
+from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QLineEdit, QPushButton
 from landing_page import Ui_MainWindow  # Import the generated UI class
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
@@ -18,6 +19,7 @@ from customer_landing_page import Ui_MainWindow as cust
 from admin_landing_page import Ui_MainWindow as admin
 import sqlite3
 import os
+import re
 
 
 
@@ -231,18 +233,45 @@ class SignUpPageUI(QMainWindow):
         email = self.ui.userEmailInput.text()
         user_role = "Customer"
 
-        if password == confirm_password:
-            # Check if the user with the same username or email already exists
-            if not self.database_manager.user_exists(username, email):
-                # Register the user
-                if self.database_manager.register_user(username, password, email, user_role):
-                    self.signup_successful()
-                else:
-                    show_error_message(self, "Error: Failed to register user.")
-            else:
-                show_error_message(self, "Error: User with the same username or email already exists.")
-        else:
+        # Validate email, name, and password
+        if not self.is_valid_email(email):
+            show_error_message(self, "Error: Invalid email address.")
+            return
+
+        if not self.is_valid_name(username):
+            show_error_message(self, "Error: Invalid username.")
+            return
+
+        if not self.is_valid_password(password):
+            show_error_message(self, "Error: Invalid password.")
+            return
+
+        if password != confirm_password:
             show_error_message(self, "Error: Passwords do not match.")
+            return
+
+        # Check if the user with the same username or email already exists
+        if not self.database_manager.user_exists(username, email):
+            # Register the user
+            if self.database_manager.register_user(username, password, email, user_role):
+                self.signup_successful()
+            else:
+                show_error_message(self, "Error: Failed to register user.")
+        else:
+            show_error_message(self, "Error: User with the same username or email already exists.")
+
+    def is_valid_email(self, email):
+        # Simple email validation using a regular expression
+        pattern = r'^\S+@\S+\.\S+$'
+        return re.match(pattern, email) is not None
+
+    def is_valid_name(self, name):
+        # Simple name validation - you can customize this based on your requirements
+        return len(name) > 0
+
+    def is_valid_password(self, password):
+        # Simple password validation - you can customize this based on your requirements
+        return len(password) >= 8
 
     def signup_successful(self):
         customer= CustomerLandingPage()
@@ -342,11 +371,107 @@ class MainUIClass(QMainWindow):
         self.ui.userEmail.setPlaceholderText("Email")
         self.ui.userPasswordInput.setPlaceholderText("Password")
         self.populate_table_with_sample_data()
-        
+        self.ui.showAllUsers.itemSelectionChanged.connect(self.show_selected_message)
+        self.ui.deleteUserBtn.clicked.connect(self.delete_selected_row)
+        self.ui.updateUserBtn.clicked.connect(self.edit_selected_row)
+        self.ui.userProfileName.setPlaceholderText("Name")
+        self.ui.userProfilePassword.setPlaceholderText("Password")
+        global LoggedUserName
+        global LoggedUserPassword
+        self.ui.userProfileName.setText(LoggedUserName)
+        self.ui.userProfilePassword.setText(LoggedUserPassword)
+
 
         # Initialize sidebar state (visible)
         self.sidebar_visible = False
-        
+    def show_selected_message(self):
+        selected_items = self.ui.showAllUsers.selectedItems()
+        if selected_items:
+            selected_message = "Selected: "
+            selected_row_data = []
+            for item in selected_items:
+                selected_message += f"{item.text()} "
+                selected_row_data.append(item.text())
+            print(selected_message)
+            self.selected_row_data = selected_row_data  # Store selected row data for deletion
+
+    def delete_selected_row(self):
+        if hasattr(self, 'selected_row_data') and self.selected_row_data:
+            reply = QMessageBox.question(
+                self,
+                'Delete Row',
+                f'Do you want to delete the selected row {self.selected_row_data}?',
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.No
+            )
+            if reply == QMessageBox.Yes:
+                try:
+                    # Delete the row from the database
+                    query = "DELETE FROM Users WHERE Username = ? AND Password = ?"
+                    self.database_manager.execute_query(query, (self.selected_row_data[0], self.selected_row_data[1]))
+
+                    # Delete the row from the table
+                    selected_row = self.ui.showAllUsers.currentRow()
+                    self.ui.showAllUsers.removeRow(selected_row)
+
+                    print(f"Row {self.selected_row_data} deleted successfully.")
+                except Exception as e:
+                    print(f"An error occurred while deleting the row: {str(e)}")
+                    show_error_message(self, f"An error occurred while deleting the row: {str(e)}")
+
+    def edit_selected_row(self):
+        if hasattr(self, 'selected_row_data') and self.selected_row_data:
+            # Create a dialog for editing data
+            dialog = QDialog(self)
+            dialog.setWindowTitle("Edit Row")
+
+            layout = QVBoxLayout()
+
+            # Add input fields for editing
+            labels = ["Username:", "Password:", "Email:", "User Type:"]
+            line_edits = [QLineEdit(data) for data in self.selected_row_data[1:]]  # Exclude UserID
+
+            for label, line_edit in zip(labels, line_edits):
+                row_layout = QVBoxLayout()
+                row_layout.addWidget(QLabel(label))
+                row_layout.addWidget(line_edit)
+                layout.addLayout(row_layout)
+
+            # Add save and cancel buttons
+            save_button = QPushButton("Save")
+            cancel_button = QPushButton("Cancel")
+            layout.addWidget(save_button)
+            layout.addWidget(cancel_button)
+
+            dialog.setLayout(layout)
+
+            # Connect signals
+            save_button.clicked.connect(lambda: self.save_edited_row(dialog, line_edits))
+            cancel_button.clicked.connect(dialog.reject)
+
+            dialog.exec_()
+
+    def save_edited_row(self, dialog, line_edits):
+        try:
+            # Extract edited data
+            edited_data = [line_edit.text() for line_edit in line_edits]
+
+            # Update the database
+            query = "UPDATE Users SET Username=?, Password=?, Email=?, UserType=? WHERE UserID=?"
+            self.database_manager.execute_query(query, (*edited_data, self.selected_row_data[0]))
+
+            # Update the table
+            selected_row = self.ui.showAllUsers.currentRow()
+            for col_idx, col_data in enumerate(edited_data):
+                item = QTableWidgetItem(col_data)
+                self.ui.showAllUsers.setItem(selected_row, col_idx + 1, item)  # Adjust column index
+
+            print(f"Row {self.selected_row_data} edited successfully.")
+            dialog.accept()
+        except Exception as e:
+            print(f"An error occurred while saving the edited row: {str(e)}")
+            show_error_message(self, f"An error occurred while saving the edited row: {str(e)}")
+
 
     def add_user(self):
         try:
@@ -458,6 +583,7 @@ class CustomerLandingPage(QMainWindow):
         self.ui.profilePageBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.userProfile))
         self.ui.managePaymentsBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.managePaymentsPage))
         self.ui.navBar.clicked.connect(self.toggle_sidebar)
+        
 
 
     def toggle_sidebar(self):
@@ -475,6 +601,8 @@ class CustomerLandingPage(QMainWindow):
         # self.ui.navBar.setText(">" if self.sidebar_visible else "<")
         self.ui.managePaymentsBtn.setText("Payments" if self.sidebar_visible else "")
         self.ui.label.setText("InnSync" if self.sidebar_visible else "Inn\nSync")
+
+        
         # self.ui.pushButton.setFixedWidth(50 if self.sidebar_visible else 0)
         
         self.ui.navBar.setIcon(QIcon(QPixmap("images/icons8-close-128.png").scaled(60,60)) if self.sidebar_visible else QIcon("images/icons8-hamburger-100.png"))
@@ -522,13 +650,103 @@ class AdminLandingPage(QMainWindow):
         self.ui.manageStaffBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageStaffPage))
         self.ui.userProfileBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.userProfilePage))
         self.ui.dashboardBtn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.Dashboard_2))
+        self.ui.showAllUsersTable.itemSelectionChanged.connect(self.show_selected_message)
+        self.ui.deleteUserBtn.clicked.connect(self.delete_selected_row)
+        self.ui.updateUserBtn.clicked.connect(self.edit_selected_row)
+        
 
         self.ui.userProfileName=LoggedUserName
         self.ui.userProfilePassword=LoggedUserPassword
 
         # Add sample data to the table
         self.populate_table_with_sample_data()
+        
+    def show_selected_message(self):
+        selected_items = self.ui.showAllUsersTable.selectedItems()
+        if selected_items:
+            selected_message = "Selected: "
+            selected_row_data = []
+            for item in selected_items:
+                selected_message += f"{item.text()} "
+                selected_row_data.append(item.text())
+            print(selected_message)
+            self.selected_row_data = selected_row_data  # Store selected row data for deletion
+            
+    def edit_selected_row(self):
+        if hasattr(self, 'selected_row_data') and self.selected_row_data:
+            # Create a dialog for editing data
+            dialog = QDialog(self)
+            dialog.setWindowTitle("Edit Row")
 
+            layout = QVBoxLayout()
+
+            # Add input fields for editing
+            labels = ["Username:", "Password:", "Email:", "User Type:"]
+            line_edits = [QLineEdit(data) for data in self.selected_row_data[1:]]
+            for label, line_edit in zip(labels, line_edits):
+                row_layout = QVBoxLayout()
+                row_layout.addWidget(QLabel(label))
+                row_layout.addWidget(line_edit)
+                layout.addLayout(row_layout)
+
+            save_button = QPushButton("Save")
+            cancel_button = QPushButton("Cancel")
+            layout.addWidget(save_button)
+            layout.addWidget(cancel_button)
+
+            dialog.setLayout(layout)
+
+            # Connect signals
+            save_button.clicked.connect(lambda: self.save_edited_row(dialog, line_edits))
+            cancel_button.clicked.connect(dialog.reject)
+
+            dialog.exec_()
+
+    
+    def save_edited_row(self, dialog, line_edits):
+        try:
+            # Extract edited data
+            edited_data = [line_edit.text() for line_edit in line_edits]
+
+            # Update the database
+            query = "UPDATE Users SET Username=?, Password=?, Email=?, UserType=? WHERE UserID=?"
+            self.database_manager.execute_query(query, (*edited_data, self.selected_row_data[0]))
+
+            # Update the table
+            selected_row = self.ui.showAllUsersTable.currentRow()
+            for col_idx, col_data in enumerate(edited_data):
+                item = QTableWidgetItem(col_data)
+                self.ui.showAllUsersTable.setItem(selected_row, col_idx + 1, item)  # Adjust column index
+
+            print(f"Row {self.selected_row_data} edited successfully.")
+            dialog.accept()
+        except Exception as e:
+            print(f"An error occurred while saving the edited row: {str(e)}")
+            show_error_message(self, f"An error occurred while saving the edited row: {str(e)}")
+        
+    def delete_selected_row(self):
+        if hasattr(self, 'selected_row_data') and self.selected_row_data:
+            reply = QMessageBox.question(
+                self,
+                'Delete Row',
+                f'Do you want to delete the selected row {self.selected_row_data}?',
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.No
+            )
+            if reply == QMessageBox.Yes:
+                try:
+                    # Delete the row from the database
+                    query = "DELETE FROM Users WHERE Username = ? AND Password = ?"
+                    self.database_manager.execute_query(query, (self.selected_row_data[0], self.selected_row_data[1]))
+
+                    # Delete the row from the table
+                    selected_row = self.ui.showAllUsersTable.currentRow()
+                    self.ui.showAllUsersTable.removeRow(selected_row)
+
+                    print(f"Row {self.selected_row_data} deleted successfully.")
+                except Exception as e:
+                    print(f"An error occurred while deleting the row: {str(e)}")
+                    show_error_message(self, f"An error occurred while deleting the row: {str(e)}")
     def populate_table_with_sample_data(self):
         try:
             # Fetch all users from the database
@@ -590,7 +808,7 @@ def main():
     try:
         app = QApplication(sys.argv)
         # window = LoginPageUI(DatabaseManager("hotel_management.db"))
-        window=MainUIClass(DatabaseManager("hotel_management.db"))
+        window=AdminLandingPage(DatabaseManager("hotel_management.db"))
         window.show()
         sys.exit(app.exec_())
     except Exception as e:

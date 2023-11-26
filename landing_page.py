@@ -735,7 +735,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.addUserBtn.setFont(font)
         self.addUserBtn.setStyleSheet("/* Normal state styling */\n"
-"QPushButton#pushButton_2 {\n"
+"QPushButton#addUserBtn {\n"
 "    color: white;\n"
 "    background: #0BDABF;\n"
 "    border: 2px solid #0BDABF;\n"
@@ -744,12 +744,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "/* Hover state styling */\n"
-"QPushButton#pushButton_2:hover {\n"
+"QPushButton#addUserBtn:hover {\n"
 "    background: #08A79D; /* Change the color for hover effect */\n"
 "}\n"
 "\n"
 "/* Advanced styling */\n"
-"QPushButton#pushButton_2:pressed {\n"
+"QPushButton#addUserBtn:pressed {\n"
 "    background: #067267; /* Change the color for pressed effect */\n"
 "    border: 2px solid #067267;\n"
 "}\n"
@@ -1589,18 +1589,19 @@ class Ui_MainWindow(object):
         self.frame_44.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_44.setObjectName("frame_44")
         self.gridLayout_33.addWidget(self.frame_44, 2, 0, 5, 1)
-        self.lineEdit_14 = QtWidgets.QLineEdit(self.frame_39)
-        self.lineEdit_14.setMaximumSize(QtCore.QSize(500, 16777215))
+        self.userProfileName = QtWidgets.QLineEdit(self.frame_39)
+        self.userProfileName.setMaximumSize(QtCore.QSize(500, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
-        self.lineEdit_14.setFont(font)
-        self.lineEdit_14.setStyleSheet("border:none;\n"
+        self.userProfileName.setFont(font)
+        self.userProfileName.setStyleSheet("border:none;\n"
 "border-bottom:2px solid black;")
-        self.lineEdit_14.setObjectName("lineEdit_14")
-        self.gridLayout_33.addWidget(self.lineEdit_14, 2, 1, 1, 1)
+        self.userProfileName.setText("")
+        self.userProfileName.setObjectName("userProfileName")
+        self.gridLayout_33.addWidget(self.userProfileName, 2, 1, 1, 1)
         self.label_35 = QtWidgets.QLabel(self.frame_39)
         self.label_35.setMaximumSize(QtCore.QSize(16777215, 60))
         font = QtGui.QFont()
@@ -1611,29 +1612,30 @@ class Ui_MainWindow(object):
         self.label_35.setFont(font)
         self.label_35.setObjectName("label_35")
         self.gridLayout_33.addWidget(self.label_35, 0, 0, 1, 2)
-        self.lineEdit_15 = QtWidgets.QLineEdit(self.frame_39)
-        self.lineEdit_15.setMaximumSize(QtCore.QSize(500, 16777215))
+        self.userProfilePassword = QtWidgets.QLineEdit(self.frame_39)
+        self.userProfilePassword.setMaximumSize(QtCore.QSize(500, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
-        self.lineEdit_15.setFont(font)
-        self.lineEdit_15.setStyleSheet("border:none;\n"
+        self.userProfilePassword.setFont(font)
+        self.userProfilePassword.setStyleSheet("border:none;\n"
 "border-bottom:2px solid black;")
-        self.lineEdit_15.setObjectName("lineEdit_15")
-        self.gridLayout_33.addWidget(self.lineEdit_15, 4, 1, 1, 1)
-        self.pushButton_15 = QtWidgets.QPushButton(self.frame_39)
-        self.pushButton_15.setMinimumSize(QtCore.QSize(0, 60))
-        self.pushButton_15.setMaximumSize(QtCore.QSize(500, 16777215))
+        self.userProfilePassword.setText("")
+        self.userProfilePassword.setObjectName("userProfilePassword")
+        self.gridLayout_33.addWidget(self.userProfilePassword, 4, 1, 1, 1)
+        self.updateProfileBtn = QtWidgets.QPushButton(self.frame_39)
+        self.updateProfileBtn.setMinimumSize(QtCore.QSize(0, 60))
+        self.updateProfileBtn.setMaximumSize(QtCore.QSize(500, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_15.setFont(font)
-        self.pushButton_15.setStyleSheet("/* Normal state styling */\n"
-"QPushButton#pushButton_15 {\n"
+        self.updateProfileBtn.setFont(font)
+        self.updateProfileBtn.setStyleSheet("/* Normal state styling */\n"
+"QPushButton#updateProfileBtn {\n"
 "    color: white;\n"
 "    background: #0BDABF;\n"
 "    border: 2px solid #0BDABF;\n"
@@ -1642,12 +1644,12 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "/* Hover state styling */\n"
-"QPushButton#pushButton_15:hover {\n"
+"QPushButton#updateProfileBtn:hover {\n"
 "    background: #08A79D; /* Change the color for hover effect */\n"
 "}\n"
 "\n"
 "/* Advanced styling */\n"
-"QPushButton#pushButton_2:pressed {\n"
+"QPushButton#updateProfileBtn:pressed {\n"
 "    background: #067267; /* Change the color for pressed effect */\n"
 "    border: 2px solid #067267;\n"
 "}\n"
@@ -1655,8 +1657,8 @@ class Ui_MainWindow(object):
 "/* Add any other advanced styling here */\n"
 "\n"
 "")
-        self.pushButton_15.setObjectName("pushButton_15")
-        self.gridLayout_33.addWidget(self.pushButton_15, 6, 1, 1, 1)
+        self.updateProfileBtn.setObjectName("updateProfileBtn")
+        self.gridLayout_33.addWidget(self.updateProfileBtn, 6, 1, 1, 1)
         self.frame_47 = QtWidgets.QFrame(self.frame_39)
         self.frame_47.setMaximumSize(QtCore.QSize(16777215, 50))
         self.frame_47.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -1672,7 +1674,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(5)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1781,8 +1783,6 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Role"))
         self.pushButton_12.setText(_translate("MainWindow", "Delete"))
         self.pushButton_13.setText(_translate("MainWindow", "Update"))
-        self.lineEdit_14.setText(_translate("MainWindow", "Name"))
         self.label_35.setText(_translate("MainWindow", "User Profile"))
-        self.lineEdit_15.setText(_translate("MainWindow", "Password"))
-        self.pushButton_15.setText(_translate("MainWindow", "Update Profile"))
+        self.updateProfileBtn.setText(_translate("MainWindow", "Update Profile"))
 import resource_rc

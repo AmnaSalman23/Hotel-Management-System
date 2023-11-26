@@ -420,7 +420,7 @@ Sync</string>
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="Dashboard">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -2840,7 +2840,7 @@ QPushButton#pushButton_13:pressed {
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QLineEdit" name="lineEdit_14">
+            <widget class="QLineEdit" name="userProfileName">
              <property name="maximumSize">
               <size>
                <width>500</width>
@@ -2860,7 +2860,7 @@ QPushButton#pushButton_13:pressed {
 border-bottom:2px solid black;</string>
              </property>
              <property name="text">
-              <string>Name</string>
+              <string/>
              </property>
             </widget>
            </item>
@@ -2886,7 +2886,7 @@ border-bottom:2px solid black;</string>
             </widget>
            </item>
            <item row="4" column="1">
-            <widget class="QLineEdit" name="lineEdit_15">
+            <widget class="QLineEdit" name="userProfilePassword">
              <property name="maximumSize">
               <size>
                <width>500</width>
@@ -2906,12 +2906,12 @@ border-bottom:2px solid black;</string>
 border-bottom:2px solid black;</string>
              </property>
              <property name="text">
-              <string>Password</string>
+              <string/>
              </property>
             </widget>
            </item>
            <item row="6" column="1">
-            <widget class="QPushButton" name="pushButton_15">
+            <widget class="QPushButton" name="updateProfileBtn">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -2934,7 +2934,7 @@ border-bottom:2px solid black;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">/* Normal state styling */
-QPushButton#pushButton_15 {
+QPushButton#updateProfileBtn {
     color: white;
     background: #0BDABF;
     border: 2px solid #0BDABF;
@@ -2943,12 +2943,12 @@ QPushButton#pushButton_15 {
 }
 
 /* Hover state styling */
-QPushButton#pushButton_15:hover {
+QPushButton#updateProfileBtn:hover {
     background: #08A79D; /* Change the color for hover effect */
 }
 
 /* Advanced styling */
-QPushButton#pushButton_2:pressed {
+QPushButton#updateProfileBtn:pressed {
     background: #067267; /* Change the color for pressed effect */
     border: 2px solid #067267;
 }

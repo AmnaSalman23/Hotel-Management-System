@@ -82,17 +82,17 @@ class Ui_MainWindow(object):
 "")
         self.bookRoomBtn.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/images/Images/man-line-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(":/images/Images/booking room.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.bookRoomBtn.setIcon(icon1)
         self.bookRoomBtn.setIconSize(QtCore.QSize(40, 40))
         self.bookRoomBtn.setObjectName("bookRoomBtn")
         self.verticalLayout.addWidget(self.bookRoomBtn)
-        self.manageServicesBtn = QtWidgets.QPushButton(self.frame_4)
+        self.manageServiceBtn = QtWidgets.QPushButton(self.frame_4)
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.manageServicesBtn.setFont(font)
-        self.manageServicesBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.manageServicesBtn.setStyleSheet("QPushButton {\n"
+        self.manageServiceBtn.setFont(font)
+        self.manageServiceBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.manageServiceBtn.setStyleSheet("QPushButton {\n"
 "    color: white;\n"
 "    background-color: #0BDABF;\n"
 "    padding: 15px;\n"
@@ -104,61 +104,13 @@ class Ui_MainWindow(object):
 "    background-color: #16E2CB;\n"
 "}\n"
 "")
-        self.manageServicesBtn.setText("")
+        self.manageServiceBtn.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/images/Images/booking room.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.manageServicesBtn.setIcon(icon2)
-        self.manageServicesBtn.setIconSize(QtCore.QSize(40, 40))
-        self.manageServicesBtn.setObjectName("manageServicesBtn")
-        self.verticalLayout.addWidget(self.manageServicesBtn)
-        self.manageBookingBtn_2 = QtWidgets.QPushButton(self.frame_4)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.manageBookingBtn_2.setFont(font)
-        self.manageBookingBtn_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.manageBookingBtn_2.setStyleSheet("QPushButton {\n"
-"    color: white;\n"
-"    background-color: #0BDABF;\n"
-"    padding: 15px;\n"
-"    border: none;\n"
-"    text-align: center;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #16E2CB;\n"
-"}\n"
-"")
-        self.manageBookingBtn_2.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/images/Images/magnifier.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.manageBookingBtn_2.setIcon(icon3)
-        self.manageBookingBtn_2.setIconSize(QtCore.QSize(40, 40))
-        self.manageBookingBtn_2.setObjectName("manageBookingBtn_2")
-        self.verticalLayout.addWidget(self.manageBookingBtn_2)
-        self.managePaymentsBtn = QtWidgets.QPushButton(self.frame_4)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.managePaymentsBtn.setFont(font)
-        self.managePaymentsBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.managePaymentsBtn.setStyleSheet("QPushButton {\n"
-"    color: white;\n"
-"    background-color: #0BDABF;\n"
-"    padding: 15px;\n"
-"    border: none;\n"
-"    text-align: center;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #16E2CB;\n"
-"}\n"
-"")
-        self.managePaymentsBtn.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/images/Images/generate.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.managePaymentsBtn.setIcon(icon4)
-        self.managePaymentsBtn.setIconSize(QtCore.QSize(40, 40))
-        self.managePaymentsBtn.setObjectName("managePaymentsBtn")
-        self.verticalLayout.addWidget(self.managePaymentsBtn)
+        icon2.addPixmap(QtGui.QPixmap(":/images/Images/man-line-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.manageServiceBtn.setIcon(icon2)
+        self.manageServiceBtn.setIconSize(QtCore.QSize(40, 40))
+        self.manageServiceBtn.setObjectName("manageServiceBtn")
+        self.verticalLayout.addWidget(self.manageServiceBtn)
         self.profilePageBtn = QtWidgets.QPushButton(self.frame_4)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -177,7 +129,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.profilePageBtn.setText("")
-        self.profilePageBtn.setIcon(icon1)
+        self.profilePageBtn.setIcon(icon2)
         self.profilePageBtn.setIconSize(QtCore.QSize(40, 40))
         self.profilePageBtn.setObjectName("profilePageBtn")
         self.verticalLayout.addWidget(self.profilePageBtn)
@@ -214,9 +166,9 @@ class Ui_MainWindow(object):
         self.navBar.setMinimumSize(QtCore.QSize(50, 50))
         self.navBar.setMaximumSize(QtCore.QSize(50, 50))
         self.navBar.setStyleSheet("border:none;")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(":/images/Images/icons8-hamburger-100.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.navBar.setIcon(icon5)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/images/Images/icons8-hamburger-100.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.navBar.setIcon(icon3)
         self.navBar.setIconSize(QtCore.QSize(50, 50))
         self.navBar.setObjectName("navBar")
         self.gridLayout.addWidget(self.navBar, 0, 0, 1, 1, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
@@ -959,245 +911,6 @@ class Ui_MainWindow(object):
         self.manageBookingPage.setObjectName("manageBookingPage")
         self.gridLayout_18 = QtWidgets.QGridLayout(self.manageBookingPage)
         self.gridLayout_18.setObjectName("gridLayout_18")
-        self.frame_20 = QtWidgets.QFrame(self.manageBookingPage)
-        self.frame_20.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_20.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_20.setObjectName("frame_20")
-        self.gridLayout_17 = QtWidgets.QGridLayout(self.frame_20)
-        self.gridLayout_17.setObjectName("gridLayout_17")
-        self.frame_22 = QtWidgets.QFrame(self.frame_20)
-        self.frame_22.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_22.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_22.setObjectName("frame_22")
-        self.gridLayout_17.addWidget(self.frame_22, 3, 0, 1, 1)
-        self.frame_21 = QtWidgets.QFrame(self.frame_20)
-        self.frame_21.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_21.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_21.setObjectName("frame_21")
-        self.gridLayout_17.addWidget(self.frame_21, 1, 0, 1, 1)
-        self.frame_23 = QtWidgets.QFrame(self.frame_20)
-        self.frame_23.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_23.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_23.setObjectName("frame_23")
-        self.gridLayout_17.addWidget(self.frame_23, 7, 0, 1, 1)
-        self.frame_24 = QtWidgets.QFrame(self.frame_20)
-        self.frame_24.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_24.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_24.setObjectName("frame_24")
-        self.gridLayout_17.addWidget(self.frame_24, 5, 0, 1, 1)
-        self.tableWidget_3 = QtWidgets.QTableWidget(self.frame_20)
-        self.tableWidget_3.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableWidget_3.setObjectName("tableWidget_3")
-        self.tableWidget_3.setColumnCount(5)
-        self.tableWidget_3.setRowCount(0)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_3.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_3.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_3.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_3.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_3.setHorizontalHeaderItem(4, item)
-        self.tableWidget_3.horizontalHeader().setCascadingSectionResizes(False)
-        self.tableWidget_3.horizontalHeader().setSortIndicatorShown(False)
-        self.tableWidget_3.horizontalHeader().setStretchLastSection(False)
-        self.tableWidget_3.verticalHeader().setCascadingSectionResizes(False)
-        self.tableWidget_3.verticalHeader().setSortIndicatorShown(False)
-        self.gridLayout_17.addWidget(self.tableWidget_3, 11, 0, 1, 2)
-        self.dateEdit = QtWidgets.QDateEdit(self.frame_20)
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.dateEdit.setFont(font)
-        self.dateEdit.setStyleSheet("border:none;\n"
-"border-bottom: 2px solid black;")
-        self.dateEdit.setObjectName("dateEdit")
-        self.gridLayout_17.addWidget(self.dateEdit, 6, 0, 1, 1)
-        self.comboBox_2 = QtWidgets.QComboBox(self.frame_20)
-        self.comboBox_2.setMinimumSize(QtCore.QSize(0, 40))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.comboBox_2.setFont(font)
-        self.comboBox_2.setStyleSheet("border:none;\n"
-"border-bottom:2px solid black;")
-        self.comboBox_2.setObjectName("comboBox_2")
-        self.comboBox_2.addItem("")
-        self.gridLayout_17.addWidget(self.comboBox_2, 8, 0, 1, 1)
-        self.pushButton_8 = QtWidgets.QPushButton(self.frame_20)
-        self.pushButton_8.setMinimumSize(QtCore.QSize(0, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_8.setFont(font)
-        self.pushButton_8.setStyleSheet("/* Normal state styling */\n"
-"QPushButton#pushButton_8 {\n"
-"    color: white;\n"
-"    background: #0BDABF;\n"
-"    border: 2px solid #0BDABF;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px 10px;\n"
-"}\n"
-"\n"
-"/* Hover state styling */\n"
-"QPushButton#pushButton_8:hover {\n"
-"    background: #08A79D; /* Change the color for hover effect */\n"
-"}\n"
-"\n"
-"/* Advanced styling */\n"
-"QPushButton#pushButton_2:pressed {\n"
-"    background: #067267; /* Change the color for pressed effect */\n"
-"    border: 2px solid #067267;\n"
-"}\n"
-"\n"
-"/* Add any other advanced styling here */\n"
-"\n"
-"")
-        self.pushButton_8.setObjectName("pushButton_8")
-        self.gridLayout_17.addWidget(self.pushButton_8, 8, 1, 1, 1)
-        self.label_20 = QtWidgets.QLabel(self.frame_20)
-        self.label_20.setMaximumSize(QtCore.QSize(16777215, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_20.setFont(font)
-        self.label_20.setObjectName("label_20")
-        self.gridLayout_17.addWidget(self.label_20, 10, 0, 1, 1)
-        self.dateEdit_2 = QtWidgets.QDateEdit(self.frame_20)
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.dateEdit_2.setFont(font)
-        self.dateEdit_2.setStyleSheet("border:none;\n"
-"border-bottom: 2px solid black;")
-        self.dateEdit_2.setObjectName("dateEdit_2")
-        self.gridLayout_17.addWidget(self.dateEdit_2, 6, 1, 1, 1)
-        self.pushButton_10 = QtWidgets.QPushButton(self.frame_20)
-        self.pushButton_10.setMinimumSize(QtCore.QSize(0, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_10.setFont(font)
-        self.pushButton_10.setStyleSheet("/* Normal state styling */\n"
-"QPushButton#pushButton_10 {\n"
-"    color: white;\n"
-"    background: #0BDABF;\n"
-"    border: 2px solid #0BDABF;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px 10px;\n"
-"}\n"
-"\n"
-"/* Hover state styling */\n"
-"QPushButton#pushButton_10:hover {\n"
-"    background: #08A79D; /* Change the color for hover effect */\n"
-"}\n"
-"\n"
-"/* Advanced styling */\n"
-"QPushButton#pushButton_2:pressed {\n"
-"    background: #067267; /* Change the color for pressed effect */\n"
-"    border: 2px solid #067267;\n"
-"}\n"
-"\n"
-"/* Add any other advanced styling here */\n"
-"\n"
-"")
-        self.pushButton_10.setObjectName("pushButton_10")
-        self.gridLayout_17.addWidget(self.pushButton_10, 12, 1, 1, 1)
-        self.pushButton_9 = QtWidgets.QPushButton(self.frame_20)
-        self.pushButton_9.setMinimumSize(QtCore.QSize(0, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_9.setFont(font)
-        self.pushButton_9.setStyleSheet("/* Normal state styling */\n"
-"QPushButton#pushButton_9 {\n"
-"    color: white;\n"
-"    background: #0BDABF;\n"
-"    border: 2px solid #0BDABF;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px 10px;\n"
-"}\n"
-"\n"
-"/* Hover state styling */\n"
-"QPushButton#pushButton_9:hover {\n"
-"    background: #08A79D; /* Change the color for hover effect */\n"
-"}\n"
-"\n"
-"/* Advanced styling */\n"
-"QPushButton#pushButton_2:pressed {\n"
-"    background: #067267; /* Change the color for pressed effect */\n"
-"    border: 2px solid #067267;\n"
-"}\n"
-"\n"
-"/* Add any other advanced styling here */\n"
-"\n"
-"")
-        self.pushButton_9.setObjectName("pushButton_9")
-        self.gridLayout_17.addWidget(self.pushButton_9, 12, 0, 1, 1)
-        self.label_17 = QtWidgets.QLabel(self.frame_20)
-        self.label_17.setMaximumSize(QtCore.QSize(16777215, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(18)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_17.setFont(font)
-        self.label_17.setObjectName("label_17")
-        self.gridLayout_17.addWidget(self.label_17, 0, 0, 1, 1)
-        self.label_19 = QtWidgets.QLabel(self.frame_20)
-        self.label_19.setMaximumSize(QtCore.QSize(16777215, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_19.setFont(font)
-        self.label_19.setObjectName("label_19")
-        self.gridLayout_17.addWidget(self.label_19, 2, 0, 1, 1)
-        self.lineEdit_9 = QtWidgets.QLineEdit(self.frame_20)
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lineEdit_9.setFont(font)
-        self.lineEdit_9.setStyleSheet("border:none;\n"
-"border-bottom:2px solid black;")
-        self.lineEdit_9.setObjectName("lineEdit_9")
-        self.gridLayout_17.addWidget(self.lineEdit_9, 4, 1, 1, 1)
-        self.lineEdit_7 = QtWidgets.QLineEdit(self.frame_20)
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lineEdit_7.setFont(font)
-        self.lineEdit_7.setStyleSheet("border:none;\n"
-"border-bottom:2px solid black;")
-        self.lineEdit_7.setObjectName("lineEdit_7")
-        self.gridLayout_17.addWidget(self.lineEdit_7, 4, 0, 1, 1)
-        self.frame_48 = QtWidgets.QFrame(self.frame_20)
-        self.frame_48.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_48.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_48.setObjectName("frame_48")
-        self.gridLayout_17.addWidget(self.frame_48, 9, 0, 1, 1)
-        self.gridLayout_18.addWidget(self.frame_20, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.manageBookingPage)
         self.userProfile = QtWidgets.QWidget()
         self.userProfile.setObjectName("userProfile")
@@ -1320,222 +1033,6 @@ class Ui_MainWindow(object):
         self.managePaymentsPage.setObjectName("managePaymentsPage")
         self.gridLayout_20 = QtWidgets.QGridLayout(self.managePaymentsPage)
         self.gridLayout_20.setObjectName("gridLayout_20")
-        self.frame_27 = QtWidgets.QFrame(self.managePaymentsPage)
-        self.frame_27.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_27.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_27.setObjectName("frame_27")
-        self.gridLayout_19 = QtWidgets.QGridLayout(self.frame_27)
-        self.gridLayout_19.setObjectName("gridLayout_19")
-        self.frame_25 = QtWidgets.QFrame(self.frame_27)
-        self.frame_25.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_25.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_25.setObjectName("frame_25")
-        self.gridLayout_19.addWidget(self.frame_25, 3, 0, 1, 1)
-        self.frame_14 = QtWidgets.QFrame(self.frame_27)
-        self.frame_14.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_14.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_14.setObjectName("frame_14")
-        self.gridLayout_19.addWidget(self.frame_14, 1, 0, 1, 1)
-        self.pushButton_12 = QtWidgets.QPushButton(self.frame_27)
-        self.pushButton_12.setMinimumSize(QtCore.QSize(0, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_12.setFont(font)
-        self.pushButton_12.setStyleSheet("/* Normal state styling */\n"
-"QPushButton#pushButton_12 {\n"
-"    color: white;\n"
-"    background: #0BDABF;\n"
-"    border: 2px solid #0BDABF;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px 10px;\n"
-"}\n"
-"\n"
-"/* Hover state styling */\n"
-"QPushButton#pushButton_12:hover {\n"
-"    background: #08A79D; /* Change the color for hover effect */\n"
-"}\n"
-"\n"
-"/* Advanced styling */\n"
-"QPushButton#pushButton_2:pressed {\n"
-"    background: #067267; /* Change the color for pressed effect */\n"
-"    border: 2px solid #067267;\n"
-"}\n"
-"\n"
-"/* Add any other advanced styling here */\n"
-"\n"
-"")
-        self.pushButton_12.setObjectName("pushButton_12")
-        self.gridLayout_19.addWidget(self.pushButton_12, 10, 0, 1, 1)
-        self.pushButton_13 = QtWidgets.QPushButton(self.frame_27)
-        self.pushButton_13.setMinimumSize(QtCore.QSize(0, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_13.setFont(font)
-        self.pushButton_13.setStyleSheet("/* Normal state styling */\n"
-"QPushButton#pushButton_13 {\n"
-"    color: white;\n"
-"    background: #0BDABF;\n"
-"    border: 2px solid #0BDABF;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px 10px;\n"
-"}\n"
-"\n"
-"/* Hover state styling */\n"
-"QPushButton#pushButton_2:hover {\n"
-"    background: #08A79D; /* Change the color for hover effect */\n"
-"}\n"
-"\n"
-"/* Advanced styling */\n"
-"QPushButton#pushButton_13:pressed {\n"
-"    background: #067267; /* Change the color for pressed effect */\n"
-"    border: 2px solid #067267;\n"
-"}\n"
-"\n"
-"/* Add any other advanced styling here */\n"
-"\n"
-"")
-        self.pushButton_13.setObjectName("pushButton_13")
-        self.gridLayout_19.addWidget(self.pushButton_13, 10, 1, 1, 1)
-        self.label_23 = QtWidgets.QLabel(self.frame_27)
-        self.label_23.setMaximumSize(QtCore.QSize(16777215, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(16)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_23.setFont(font)
-        self.label_23.setObjectName("label_23")
-        self.gridLayout_19.addWidget(self.label_23, 8, 0, 1, 1)
-        self.pushButton_11 = QtWidgets.QPushButton(self.frame_27)
-        self.pushButton_11.setMinimumSize(QtCore.QSize(0, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_11.setFont(font)
-        self.pushButton_11.setStyleSheet("/* Normal state styling */\n"
-"QPushButton#pushButton_11 {\n"
-"    color: white;\n"
-"    background: #0BDABF;\n"
-"    border: 2px solid #0BDABF;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px 10px;\n"
-"}\n"
-"\n"
-"/* Hover state styling */\n"
-"QPushButton#pushButton_11:hover {\n"
-"    background: #08A79D; /* Change the color for hover effect */\n"
-"}\n"
-"\n"
-"/* Advanced styling */\n"
-"QPushButton#pushButton_2:pressed {\n"
-"    background: #067267; /* Change the color for pressed effect */\n"
-"    border: 2px solid #067267;\n"
-"}\n"
-"\n"
-"/* Add any other advanced styling here */\n"
-"\n"
-"")
-        self.pushButton_11.setObjectName("pushButton_11")
-        self.gridLayout_19.addWidget(self.pushButton_11, 7, 1, 1, 1)
-        self.comboBox_3 = QtWidgets.QComboBox(self.frame_27)
-        self.comboBox_3.setMinimumSize(QtCore.QSize(0, 40))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(12)
-        self.comboBox_3.setFont(font)
-        self.comboBox_3.setStyleSheet("border:none;\n"
-"border-bottom:2px solid black;")
-        self.comboBox_3.setObjectName("comboBox_3")
-        self.comboBox_3.addItem("")
-        self.gridLayout_19.addWidget(self.comboBox_3, 6, 1, 1, 1)
-        self.tableWidget_4 = QtWidgets.QTableWidget(self.frame_27)
-        self.tableWidget_4.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableWidget_4.setObjectName("tableWidget_4")
-        self.tableWidget_4.setColumnCount(5)
-        self.tableWidget_4.setRowCount(0)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_4.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_4.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_4.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_4.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_4.setHorizontalHeaderItem(4, item)
-        self.tableWidget_4.horizontalHeader().setCascadingSectionResizes(False)
-        self.tableWidget_4.horizontalHeader().setSortIndicatorShown(False)
-        self.tableWidget_4.horizontalHeader().setStretchLastSection(False)
-        self.tableWidget_4.verticalHeader().setCascadingSectionResizes(False)
-        self.tableWidget_4.verticalHeader().setSortIndicatorShown(False)
-        self.gridLayout_19.addWidget(self.tableWidget_4, 9, 0, 1, 2)
-        self.label_22 = QtWidgets.QLabel(self.frame_27)
-        self.label_22.setMaximumSize(QtCore.QSize(16777215, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_22.setFont(font)
-        self.label_22.setObjectName("label_22")
-        self.gridLayout_19.addWidget(self.label_22, 2, 0, 1, 1)
-        self.lineEdit_11 = QtWidgets.QLineEdit(self.frame_27)
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lineEdit_11.setFont(font)
-        self.lineEdit_11.setStyleSheet("border:none;\n"
-"border-bottom:2px solid black;")
-        self.lineEdit_11.setObjectName("lineEdit_11")
-        self.gridLayout_19.addWidget(self.lineEdit_11, 4, 1, 1, 1)
-        self.label_21 = QtWidgets.QLabel(self.frame_27)
-        self.label_21.setMaximumSize(QtCore.QSize(16777215, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(18)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_21.setFont(font)
-        self.label_21.setObjectName("label_21")
-        self.gridLayout_19.addWidget(self.label_21, 0, 0, 1, 1)
-        self.lineEdit_10 = QtWidgets.QLineEdit(self.frame_27)
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lineEdit_10.setFont(font)
-        self.lineEdit_10.setStyleSheet("border:none;\n"
-"border-bottom:2px solid black;")
-        self.lineEdit_10.setObjectName("lineEdit_10")
-        self.gridLayout_19.addWidget(self.lineEdit_10, 4, 0, 1, 1)
-        self.lineEdit_12 = QtWidgets.QLineEdit(self.frame_27)
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.lineEdit_12.setFont(font)
-        self.lineEdit_12.setStyleSheet("border:none;\n"
-"border-bottom:2px solid black;")
-        self.lineEdit_12.setObjectName("lineEdit_12")
-        self.gridLayout_19.addWidget(self.lineEdit_12, 6, 0, 1, 1)
-        self.frame_32 = QtWidgets.QFrame(self.frame_27)
-        self.frame_32.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_32.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_32.setObjectName("frame_32")
-        self.gridLayout_19.addWidget(self.frame_32, 5, 0, 1, 1)
-        self.gridLayout_20.addWidget(self.frame_27, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.managePaymentsPage)
         self.gridLayout_2.addWidget(self.stackedWidget, 0, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -1544,7 +1041,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1592,47 +1089,8 @@ class Ui_MainWindow(object):
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Description here.....</span></p></body></html>"))
         self.label_15.setText(_translate("MainWindow", "Ratings"))
-        item = self.tableWidget_3.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "ID"))
-        item = self.tableWidget_3.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Name"))
-        item = self.tableWidget_3.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Password"))
-        item = self.tableWidget_3.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Email"))
-        item = self.tableWidget_3.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Role"))
-        self.comboBox_2.setItemText(0, _translate("MainWindow", "Role"))
-        self.pushButton_8.setText(_translate("MainWindow", "Add Booking"))
-        self.label_20.setText(_translate("MainWindow", "All Bookings"))
-        self.pushButton_10.setText(_translate("MainWindow", "Update"))
-        self.pushButton_9.setText(_translate("MainWindow", "Delete"))
-        self.label_17.setText(_translate("MainWindow", "Manage Booking"))
-        self.label_19.setText(_translate("MainWindow", "Add Booking:"))
-        self.lineEdit_9.setText(_translate("MainWindow", "Room Number"))
-        self.lineEdit_7.setText(_translate("MainWindow", "Name"))
         self.lineEdit_14.setText(_translate("MainWindow", "Name"))
         self.label_35.setText(_translate("MainWindow", "User Profile"))
         self.lineEdit_15.setText(_translate("MainWindow", "Password"))
         self.pushButton_15.setText(_translate("MainWindow", "Update Profile"))
-        self.pushButton_12.setText(_translate("MainWindow", "Delete"))
-        self.pushButton_13.setText(_translate("MainWindow", "Update"))
-        self.label_23.setText(_translate("MainWindow", "Add Users:"))
-        self.pushButton_11.setText(_translate("MainWindow", "Add User"))
-        self.comboBox_3.setItemText(0, _translate("MainWindow", "Role"))
-        item = self.tableWidget_4.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "ID"))
-        item = self.tableWidget_4.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Name"))
-        item = self.tableWidget_4.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Password"))
-        item = self.tableWidget_4.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Email"))
-        item = self.tableWidget_4.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Role"))
-        self.label_22.setText(_translate("MainWindow", "Add Payment:"))
-        self.lineEdit_11.setText(_translate("MainWindow", "Password"))
-        self.label_21.setText(_translate("MainWindow", "Manage Payments"))
-        self.lineEdit_10.setText(_translate("MainWindow", "Name"))
-        self.lineEdit_12.setText(_translate("MainWindow", "Email"))
 import resource_rc
