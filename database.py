@@ -67,6 +67,7 @@ def create_database():
             UserID INTEGER PRIMARY KEY,
             Username TEXT UNIQUE,
             Password TEXT,
+            Email TEXT UNIQUE,
             UserType TEXT
         )
     ''')
