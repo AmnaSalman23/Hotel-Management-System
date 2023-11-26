@@ -316,9 +316,9 @@ class SignUpPageUI(QMainWindow):
        
     
 class MainUIClass(QMainWindow):
-    def __init__(self):
+    def __init__(self, database_manager):
         super().__init__()
-
+        self.database_manager = database_manager
         # Create an instance of the generated UI class
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -333,28 +333,61 @@ class MainUIClass(QMainWindow):
         self.ui.manageBookingBtn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageBookingPage))
         self.ui.profilePageBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.userProfile))
         self.ui.managePaymentsBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.managePaymentsPage))
+
+        self.ui.addUserBtn.clicked.connect(self.add_user)
         self.ui.navBar.clicked.connect(self.toggle_sidebar)
         self.loadAllEmployeesGraph()
 
-        self.ui.userNameInput.placeholderText("Name")
-        self.ui.userEmailInput.placeholderText("Email")
-        self.ui.userPasswordInput.placeholderText("Password")
+        self.ui.userNameInput.setPlaceholderText("Name")
+        self.ui.userEmail.setPlaceholderText("Email")
+        self.ui.userPasswordInput.setPlaceholderText("Password")
+        self.populate_table_with_sample_data()
         
 
         # Initialize sidebar state (visible)
         self.sidebar_visible = False
         
 
-    
-    def onTitleBarMousePress(self, event):
-        if event.button() == Qt.LeftButton:
-            self.drag_position = event.globalPos() - self.frameGeometry().topLeft()
-            event.accept()
+    def add_user(self):
+        try:
+            username = self.ui.userNameInput.text()
+            password = self.ui.userPasswordInput.text()
+            email = self.ui.userEmail.text()
+            # user_role = self.ui.userRoleInput.currentText()
+            user_role = "Staff"
 
-    def onTitleBarMouseMove(self, event):
-        if event.buttons() == Qt.LeftButton:
-            self.move(event.globalPos() - self.drag_position)
-            event.accept()
+            success = self.database_manager.register_user(username, password, email, user_role)
+
+            if success:
+                show_error_message(self, "User added successfully")
+                self.populate_table_with_sample_data()
+            else:
+                show_error_message(self, "Error: Failed to register user.")
+        except Exception as e:
+            print(f"An error occurred during user registration: {str(e)}")
+            show_error_message(self, f"An error occurred during user registration: {str(e)}")
+    
+    def populate_table_with_sample_data(self):
+        try:
+            # Fetch all users from the database
+            sample_data = self.database_manager.fetch_all("SELECT * FROM Users Where UserType='Staff'")
+
+            # Set the number of rows and columns
+            self.ui.showAllUsers.setRowCount(len(sample_data))
+            if len(sample_data) > 0:
+                self.ui.showAllUsers.setColumnCount(len(sample_data[0]))
+            else:
+                self.ui.showAllUsers.setColumnCount(0)
+
+            # Insert data into the table
+            for row_idx, row_data in enumerate(sample_data):
+                for col_idx, col_data in enumerate(row_data):
+                    item = QTableWidgetItem(str(col_data))
+                    self.ui.showAllUsers.setItem(row_idx, col_idx, item)
+
+        except Exception as e:
+            print(f"An error occurred while populating the table: {str(e)}")
+            show_error_message(self, f"An error occurred while populating the table: {str(e)}")
     
     def on_button_click(self):
         # Define what happens when the button is clicked
@@ -488,6 +521,7 @@ class AdminLandingPage(QMainWindow):
         self.ui.userProfilePassword.setPlaceholderText("Password")
         self.ui.manageStaffBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageStaffPage))
         self.ui.userProfileBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.userProfilePage))
+        self.ui.dashboardBtn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.Dashboard_2))
 
         self.ui.userProfileName=LoggedUserName
         self.ui.userProfilePassword=LoggedUserPassword
@@ -556,7 +590,7 @@ def main():
     try:
         app = QApplication(sys.argv)
         # window = LoginPageUI(DatabaseManager("hotel_management.db"))
-        window=AdminLandingPage(DatabaseManager("hotel_management.db"))
+        window=MainUIClass(DatabaseManager("hotel_management.db"))
         window.show()
         sys.exit(app.exec_())
     except Exception as e:

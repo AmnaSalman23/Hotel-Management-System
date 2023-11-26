@@ -420,7 +420,7 @@ Sync</string>
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="Dashboard">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1204,7 +1204,7 @@ QPushButton#updateUserBtn:pressed {
 border-bottom:2px solid black;</string>
                 </property>
                 <property name="text">
-                 <string>Password</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -1223,7 +1223,7 @@ border-bottom:2px solid black;</string>
 border-bottom:2px solid black;</string>
                 </property>
                 <property name="text">
-                 <string>Name</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -1269,7 +1269,7 @@ border-bottom:2px solid black;</string>
 border-bottom:2px solid black;</string>
                 </property>
                 <property name="text">
-                 <string>Email</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -1279,6 +1279,12 @@ border-bottom:2px solid black;</string>
                  <size>
                   <width>0</width>
                   <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
                  </size>
                 </property>
                 <property name="font">
@@ -1358,7 +1364,7 @@ border-bottom:2px solid black;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">/* Normal state styling */
-QPushButton#pushButton_2 {
+QPushButton#addUserBtn {
     color: white;
     background: #0BDABF;
     border: 2px solid #0BDABF;
@@ -1367,12 +1373,12 @@ QPushButton#pushButton_2 {
 }
 
 /* Hover state styling */
-QPushButton#pushButton_2:hover {
+QPushButton#addUserBtn:hover {
     background: #08A79D; /* Change the color for hover effect */
 }
 
 /* Advanced styling */
-QPushButton#pushButton_2:pressed {
+QPushButton#addUserBtn:pressed {
     background: #067267; /* Change the color for pressed effect */
     border: 2px solid #067267;
 }
