@@ -87,30 +87,6 @@ class Ui_MainWindow(object):
         self.bookRoomBtn.setIconSize(QtCore.QSize(40, 40))
         self.bookRoomBtn.setObjectName("bookRoomBtn")
         self.verticalLayout.addWidget(self.bookRoomBtn)
-        self.manageServiceBtn = QtWidgets.QPushButton(self.frame_4)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.manageServiceBtn.setFont(font)
-        self.manageServiceBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.manageServiceBtn.setStyleSheet("QPushButton {\n"
-"    color: white;\n"
-"    background-color: #0BDABF;\n"
-"    padding: 15px;\n"
-"    border: none;\n"
-"    text-align: center;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: #16E2CB;\n"
-"}\n"
-"")
-        self.manageServiceBtn.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/images/Images/man-line-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.manageServiceBtn.setIcon(icon2)
-        self.manageServiceBtn.setIconSize(QtCore.QSize(40, 40))
-        self.manageServiceBtn.setObjectName("manageServiceBtn")
-        self.verticalLayout.addWidget(self.manageServiceBtn)
         self.profilePageBtn = QtWidgets.QPushButton(self.frame_4)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -129,15 +105,12 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.profilePageBtn.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/images/Images/man-line-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.profilePageBtn.setIcon(icon2)
         self.profilePageBtn.setIconSize(QtCore.QSize(40, 40))
         self.profilePageBtn.setObjectName("profilePageBtn")
         self.verticalLayout.addWidget(self.profilePageBtn)
-        self.frame_2 = QtWidgets.QFrame(self.frame_4)
-        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_2.setObjectName("frame_2")
-        self.verticalLayout.addWidget(self.frame_2)
         self.frame_12 = QtWidgets.QFrame(self.frame_4)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -191,6 +164,30 @@ class Ui_MainWindow(object):
         self.label.setIndent(-3)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 1, 0, 1, 1, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.logoutBtn = QtWidgets.QPushButton(self.frame)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.logoutBtn.setFont(font)
+        self.logoutBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.logoutBtn.setStyleSheet("QPushButton {\n"
+"    color: white;\n"
+"    background-color: #0BDABF;\n"
+"    padding: 15px;\n"
+"    border: none;\n"
+"    text-align: center;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #16E2CB;\n"
+"}\n"
+"")
+        self.logoutBtn.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/images/Images/logoutImage.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.logoutBtn.setIcon(icon4)
+        self.logoutBtn.setIconSize(QtCore.QSize(40, 40))
+        self.logoutBtn.setObjectName("logoutBtn")
+        self.gridLayout.addWidget(self.logoutBtn, 5, 0, 1, 1)
         self.gridLayout_2.addWidget(self.frame, 0, 0, 1, 1)
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setStyleSheet("")
@@ -736,17 +733,17 @@ class Ui_MainWindow(object):
         self.label_7.setFont(font)
         self.label_7.setObjectName("label_7")
         self.gridLayout_15.addWidget(self.label_7, 2, 0, 1, 1)
-        self.phoneNumberInput = QtWidgets.QLineEdit(self.frame_16)
+        self.lineEdit = QtWidgets.QLineEdit(self.frame_16)
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.phoneNumberInput.setFont(font)
-        self.phoneNumberInput.setStyleSheet("border:none;\n"
+        self.lineEdit.setFont(font)
+        self.lineEdit.setStyleSheet("border:none;\n"
 "border-bottom:2px solid black;")
-        self.phoneNumberInput.setObjectName("phoneNumberInput")
-        self.gridLayout_15.addWidget(self.phoneNumberInput, 6, 0, 1, 1)
+        self.lineEdit.setObjectName("lineEdit")
+        self.gridLayout_15.addWidget(self.lineEdit, 6, 0, 1, 1)
         self.label_5 = QtWidgets.QLabel(self.frame_16)
         self.label_5.setMaximumSize(QtCore.QSize(16777215, 60))
         font = QtGui.QFont()
@@ -766,6 +763,7 @@ class Ui_MainWindow(object):
         self.firstNameInput.setFont(font)
         self.firstNameInput.setStyleSheet("border:none;\n"
 "border-bottom:2px solid black;")
+        self.firstNameInput.setText("")
         self.firstNameInput.setObjectName("firstNameInput")
         self.gridLayout_15.addWidget(self.firstNameInput, 4, 0, 1, 1)
         self.lastNameInput = QtWidgets.QLineEdit(self.frame_16)
@@ -777,6 +775,7 @@ class Ui_MainWindow(object):
         self.lastNameInput.setFont(font)
         self.lastNameInput.setStyleSheet("border:none;\n"
 "border-bottom:2px solid black;")
+        self.lastNameInput.setText("")
         self.lastNameInput.setObjectName("lastNameInput")
         self.gridLayout_15.addWidget(self.lastNameInput, 4, 1, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.frame_16)
@@ -1074,10 +1073,8 @@ class Ui_MainWindow(object):
         self.cancelBookingBtn.setText(_translate("MainWindow", "Cancel Booking"))
         self.label_8.setText(_translate("MainWindow", "Cancel Booking:"))
         self.label_7.setText(_translate("MainWindow", "Booking Details"))
-        self.phoneNumberInput.setText(_translate("MainWindow", "Phone Number"))
+        self.lineEdit.setText(_translate("MainWindow", "Phone Number"))
         self.label_5.setText(_translate("MainWindow", "Book Room"))
-        self.firstNameInput.setText(_translate("MainWindow", "First Name"))
-        self.lastNameInput.setText(_translate("MainWindow", "Last Name"))
         self.label_2.setText(_translate("MainWindow", "Check In Date"))
         self.label_16.setText(_translate("MainWindow", "Check Out Date"))
         self.label_6.setText(_translate("MainWindow", "Feedback"))

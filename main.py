@@ -91,6 +91,50 @@ class DatabaseManager:
         if result:
             return result[0]
         return None
+    def add_service(self, service_name, description, price):
+        query = "INSERT INTO Services (ServiceName, Description, Price) VALUES (?, ?, ?)"
+        self.execute_query(query, (service_name, description, price))
+
+    def insert_booking(self, customer_id, room_number, check_in_datetime, check_out_datetime, is_assured):
+        try:
+            connection = sqlite3.connect("hotel_management.db")
+            cursor = connection.cursor()
+
+            cursor.execute('''
+                INSERT INTO RoomBookings (CustomerID, RoomNumber, CheckInDateTime, CheckOutDateTime, IsAssured)
+                VALUES (?, ?, ?, ?, ?)
+            ''', (customer_id, room_number, check_in_datetime, check_out_datetime, is_assured))
+
+            connection.commit()
+            connection.close()
+
+            # Provide feedback to the user with the correct parent widget
+            # QMessageBox.information(parent_widget, "Booking Successful", "Room booked successfully!")
+
+        except sqlite3.Error as e:
+            print(f"SQLite error: {e}")
+             
+
+    def cancel_booking_by_id(self, booking_id):
+        try:
+            connection = sqlite3.connect("hotel_management.db")
+            cursor = connection.cursor()
+
+            cursor.execute('''
+                DELETE FROM RoomBookings
+                WHERE BookingID = ?
+            ''', (booking_id,))
+
+            connection.commit()
+            connection.close()
+
+            # Provide feedback to the user (you can customize this message)
+            QMessageBox.information(self, "Booking Canceled", "Booking canceled successfully!")
+
+        except sqlite3.Error as e:
+            print(f"SQLite error: {e}")
+            # Handle the error (you can customize this part)
+
 
 
 
@@ -112,6 +156,7 @@ class LoginPageUI(QMainWindow):
         self.ui.userNameInput.setPlaceholderText("UserName")
         self.ui.userPasswordInput.setPlaceholderText("Password")
         self.ui.userPasswordInput.setEchoMode(2)
+        self.ui.registerNowBtn.clicked.connect(self.open_signup_page)
         
 
  
@@ -138,7 +183,7 @@ class LoginPageUI(QMainWindow):
 
     
     def open_signup_page(self):
-        self.signup_form = SignUpPageUI()
+        self.signup_form = SignUpPageUI(self.database_manager)
         self.hide()
         time.sleep(0.2)
         self.signup_form.show()
@@ -149,7 +194,7 @@ class LoginPageUI(QMainWindow):
     #     # self.open_landing_page
 
     def open_landing_page(self):
-        self.landing_form = MainUIClass()
+        self.landing_form = MainUIClass(self.database_manager)
         self.hide()
         time.sleep(0.2)
         self.landing_form.show()
@@ -179,13 +224,13 @@ class LoginPageUI(QMainWindow):
             show_error_message(self, f"An error occurred: {str(e)}")
 
     def open_admin_landing_page(self):
-        self.landing_form = AdminLandingPage()
+        self.landing_form = AdminLandingPage(self.database_manager)
         self.hide()
         time.sleep(0.2)
         self.landing_form.show()
 
     def open_manager_landing_page(self):
-        self.landing_form=MainUIClass()
+        self.landing_form=MainUIClass(self.database_manager)
         self.hide()
         time.sleep(0.2)
         self.landing_form.show()
@@ -195,7 +240,7 @@ class LoginPageUI(QMainWindow):
         pass
 
     def open_customer_landing_page(self):
-        self.landing_form = CustomerLandingPage()
+        self.landing_form = CustomerLandingPage(self.database_manager)
         self.hide()
         time.sleep(0.2)
         self.landing_form.show()
@@ -274,15 +319,11 @@ class SignUpPageUI(QMainWindow):
         return len(password) >= 8
 
     def signup_successful(self):
-        customer= CustomerLandingPage()
+        customer= CustomerLandingPage(DatabaseManager("hotel_management.db"))
         self.hide()
         customer.show()  # Pass the database_manager to LoginPageUI
 
-    def open_login_page(self, database_manager):
-        self.login_form = LoginPageUI(database_manager)
-        self.hide()
-        time.sleep(0.2)
-        self.login_form.show()
+    
 
     def show_password(self):
         if self.ui.showPasswordBtn.isChecked():
@@ -311,7 +352,7 @@ class SignUpPageUI(QMainWindow):
             self.ui.userPasswordInput.setEchoMode(2)
     
     def open_login_page(self):
-        self.login_form = LoginPageUI()
+        self.login_form = LoginPageUI(self.database_manager)
         self.hide()
         time.sleep(0.2)
         self.login_form.show()
@@ -370,6 +411,9 @@ class MainUIClass(QMainWindow):
         self.ui.userNameInput.setPlaceholderText("Name")
         self.ui.userEmail.setPlaceholderText("Email")
         self.ui.userPasswordInput.setPlaceholderText("Password")
+        self.ui.serviceName.setPlaceholderText("Service Name")
+        self.ui.servicePrice.setPlaceholderText("Price")
+        self.ui.serviceDescription.setPlaceholderText("Description")
         self.populate_table_with_sample_data()
         self.ui.showAllUsers.itemSelectionChanged.connect(self.show_selected_message)
         self.ui.deleteUserBtn.clicked.connect(self.delete_selected_row)
@@ -380,10 +424,128 @@ class MainUIClass(QMainWindow):
         global LoggedUserPassword
         self.ui.userProfileName.setText(LoggedUserName)
         self.ui.userProfilePassword.setText(LoggedUserPassword)
+        self.ui.addServiceBtn.clicked.connect(self.add_service_to_database)
+        self.populate_table_with_services()
+        self.ui.showAllServices.itemSelectionChanged.connect(self.show_selected_message_2)
+        self.ui.deleteServiceBtn.clicked.connect(self.delete_selected_row_2)
+        self.ui.updateServiceBtn.clicked.connect(self.edit_selected_row_2)
+        self.ui.logoutBtn.clicked.connect(self.open_login_page)
+
+    
+
+
+
+        # self.ui.deleteServiceBtn.setText("")
 
 
         # Initialize sidebar state (visible)
         self.sidebar_visible = False
+    def open_login_page(self):
+        self.login_form = LoginPageUI(self.database_manager)
+        self.hide()
+        time.sleep(0.2)
+        self.login_form.show()
+    def show_selected_message_2(self):
+        selected_items = self.ui.showAllServices.selectedItems()
+        if selected_items:
+            selected_message = "Selected: "
+            selected_row_data = []
+            for item in selected_items:
+                selected_message += f"{item.text()} "
+                selected_row_data.append(item.text())
+            print(selected_message)
+            self.selected_row_data = selected_row_data
+    def edit_selected_row_2(self):
+        if hasattr(self, 'selected_row_data') and self.selected_row_data:
+            # Create a dialog for editing data
+            dialog = QDialog(self)
+            dialog.setWindowTitle("Edit Row")
+
+            layout = QVBoxLayout()
+
+            # Add input fields for editing
+            labels = ["Name:", "Price:", "Description:"]
+            line_edits = [QLineEdit(data) for data in self.selected_row_data[1:]]
+            for label, line_edit in zip(labels, line_edits):
+                row_layout = QVBoxLayout()
+                row_layout.addWidget(QLabel(label))
+                row_layout.addWidget(line_edit)
+                layout.addLayout(row_layout)
+            save_button = QPushButton("Save")
+            cancel_button = QPushButton("Cancel")
+            layout.addWidget(save_button)
+            layout.addWidget(cancel_button)
+
+            dialog.setLayout(layout)
+
+            # Connect signals
+            save_button.clicked.connect(lambda: self.save_edited_row(dialog, line_edits))
+            cancel_button.clicked.connect(dialog.reject)
+
+            dialog.exec_()
+    def save_edited_row_2(self, dialog, line_edits):
+        try:
+            # Extract edited data
+            edited_data = [line_edit.text() for line_edit in line_edits]
+
+            # Update the database
+            query = "UPDATE Services SET Name=?, Price=?, Description=?"
+            self.database_manager.execute_query(query, (*edited_data, self.selected_row_data[0]))
+
+            # Update the table
+            selected_row = self.ui.showAllServices.currentRow()
+            for col_idx, col_data in enumerate(edited_data):
+                item = QTableWidgetItem(col_data)
+                self.ui.showAllServices.setItem(selected_row, col_idx + 1, item)  # Adjust column index
+
+            print(f"Row {self.selected_row_data} edited successfully.")
+            dialog.accept()
+        except Exception as e:
+            print(f"An error occurred while saving the edited row: {str(e)}")
+            show_error_message(self, f"An error occurred while saving the edited row: {str(e)}")
+
+    def add_service_to_database(self):
+        service_name = self.ui.serviceName.text()
+        description = self.ui.serviceDescription.toPlainText()
+        price = float(self.ui.servicePrice.text())  # Assuming price is a float
+
+        try:
+            # Add service to the database
+            self.database_manager.add_service(service_name, description, price)
+            show_error_message(self, "Service added successfully")
+
+            # Refresh the table to show all services
+            self.populate_table_with_services()
+
+            # Optionally, clear input fields
+            self.ui.serviceName.clear()
+            self.ui.serviceDescription.clear()
+            self.ui.servicePrice.clear()
+        except Exception as e:
+            show_error_message(self, f"Error adding service: {str(e)}")
+
+    def populate_table_with_services(self):
+        try:
+            # Fetch all services from the database
+            services_data = self.database_manager.fetch_all("SELECT * FROM Services")
+
+            # Set the number of rows and columns
+            self.ui.showAllServices.setRowCount(len(services_data))
+            if len(services_data) > 0:
+                self.ui.showAllServices.setColumnCount(len(services_data[0]))
+            else:
+                self.ui.showAllServices.setColumnCount(0)
+
+            # Insert data into the table
+            for row_idx, row_data in enumerate(services_data):
+                for col_idx, col_data in enumerate(row_data):
+                    item = QTableWidgetItem(str(col_data))
+                    self.ui.showAllServices.setItem(row_idx, col_idx, item)
+
+        except Exception as e:
+            show_error_message(self, f"An error occurred while populating the services table: {str(e)}")
+
+
     def show_selected_message(self):
         selected_items = self.ui.showAllUsers.selectedItems()
         if selected_items:
@@ -394,7 +556,29 @@ class MainUIClass(QMainWindow):
                 selected_row_data.append(item.text())
             print(selected_message)
             self.selected_row_data = selected_row_data  # Store selected row data for deletion
+    def delete_selected_row_2(self):
+        if hasattr(self, 'selected_row_data') and self.selected_row_data:
+            reply = QMessageBox.question(
+                self,
+                'Delete Row',
+                f'Do you want to delete the selected row {self.selected_row_data}?',
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.No
+            )
+            if reply == QMessageBox.Yes:
+                try:
+                    # Delete the row from the database
+                    query = "DELETE FROM Services WHERE ServiceName = ? AND Price = ?"
+                    self.database_manager.execute_query(query, (self.selected_row_data[0], self.selected_row_data[2]))
 
+                    # Delete the row from the table
+                    selected_row = self.ui.showAllServices.currentRow()
+                    self.ui.showAllServices.removeRow(selected_row)
+
+                    print(f"Row {self.selected_row_data} deleted successfully.")
+                except Exception as e:
+                    print(f"An error occurred while deleting the row: {str(e)}")
+                    show_error_message(self, f"An error occurred while deleting the row: {str(e)}")
     def delete_selected_row(self):
         if hasattr(self, 'selected_row_data') and self.selected_row_data:
             reply = QMessageBox.question(
@@ -567,9 +751,9 @@ class MainUIClass(QMainWindow):
             self.ui.frame.setFixedWidth(100)
 
 class CustomerLandingPage(QMainWindow):
-    def __init__(self):
+    def __init__(self, database_manager):
         super().__init__()
-
+        self.database_manager = database_manager
         # Create an instance of the generated UI class
         self.ui = cust()
         self.ui.setupUi(self)
@@ -581,8 +765,38 @@ class CustomerLandingPage(QMainWindow):
         self.ui.bookRoomBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.bookRoomPage))
         # self.ui.manageBookingBtn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageBookingPage))
         self.ui.profilePageBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.userProfile))
-        self.ui.managePaymentsBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.managePaymentsPage))
+        # self.ui.managePaymentsBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.managePaymentsPage))
         self.ui.navBar.clicked.connect(self.toggle_sidebar)
+        self.ui.bookRoomBtn.clicked.connect(self.book_room)
+        self.ui.cancelBookingBtn.clicked.connect(self.cancel_booking)
+        self.ui.logoutBtn.clicked.connect(self.open_login_page)
+
+    def book_room(self):
+        # You need to implement the logic for booking a room here
+        # This might involve collecting necessary information from the user
+        # and then inserting a new record into the RoomBookings table
+
+        # For example:
+        customer_id = 1  # Replace with the actual customer ID
+        room_number = 101  # Replace with the actual room number
+        check_in_datetime = "2023-01-01 12:00:00"  # Replace with the actual check-in datetime
+        check_out_datetime = "2023-01-03 12:00:00"  # Replace with the actual check-out datetime
+        is_assured = True  # Replace with the actual assurance status
+
+        # Insert the booking into the RoomBookings table
+        self.database_manager.insert_booking(customer_id, room_number, check_in_datetime, check_out_datetime, is_assured)
+        show_error_message(self, "Room booked successfully!")
+
+    def cancel_booking(self):
+        # You need to implement the logic for canceling a booking here
+        # This might involve selecting a booking from the RoomBookings table
+        # and then deleting the corresponding record
+
+        # For example:
+        booking_id_to_cancel = 1  # Replace with the actual booking ID to cancel
+
+        # Cancel the booking
+        self.database_manager.cancel_booking_by_id(booking_id_to_cancel)
         
 
 
@@ -654,12 +868,14 @@ class AdminLandingPage(QMainWindow):
         self.ui.deleteUserBtn.clicked.connect(self.delete_selected_row)
         self.ui.updateUserBtn.clicked.connect(self.edit_selected_row)
         
+        
 
         self.ui.userProfileName=LoggedUserName
         self.ui.userProfilePassword=LoggedUserPassword
 
         # Add sample data to the table
         self.populate_table_with_sample_data()
+        self.ui.logoutBtn.clicked.connect(self.open_login_page)
         
     def show_selected_message(self):
         selected_items = self.ui.showAllUsersTable.selectedItems()
@@ -792,13 +1008,13 @@ class AdminLandingPage(QMainWindow):
         
     
     def open_login_page(self):
-        self.login_form = LoginPageUI()
+        self.login_form = LoginPageUI(self.database_manager)
         self.hide()
         time.sleep(0.2)
         self.login_form.show()
 
     def open_signup_page(self):
-        self.signup_form = SignUpPageUI()
+        self.signup_form = SignUpPageUI(self.database_manager)
         self.hide()
         time.sleep(0.2)
         self.signup_form.show()  
@@ -808,7 +1024,7 @@ def main():
     try:
         app = QApplication(sys.argv)
         # window = LoginPageUI(DatabaseManager("hotel_management.db"))
-        window=AdminLandingPage(DatabaseManager("hotel_management.db"))
+        window=LoginPageUI(DatabaseManager("hotel_management.db"))
         window.show()
         sys.exit(app.exec_())
     except Exception as e:

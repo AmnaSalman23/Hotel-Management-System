@@ -1,0 +1,7 @@
+Install all the required python libraries from requirements.txt file
+You need to have python installed in your system.
+You can use any python compiler to run this program.
+
+User Login Information: You can use the 
+Username: Saleem
+Password: 123 

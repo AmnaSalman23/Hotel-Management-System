@@ -311,6 +311,45 @@ QPushButton:hover {
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QPushButton" name="logoutBtn">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    color: white;
+    background-color: #0BDABF;
+    padding: 15px;
+    border: none;
+    text-align: center;
+}
+
+QPushButton:hover {
+    background-color: #16E2CB;
+}
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/images/Images/logoutImage.png</normaloff>:/images/Images/logoutImage.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -420,7 +459,7 @@ Sync</string>
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Dashboard">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1518,7 +1557,7 @@ QPushButton#deleteUserBtn:pressed {
             </widget>
            </item>
            <item row="12" column="0">
-            <widget class="QPushButton" name="pushButton_5">
+            <widget class="QPushButton" name="addServiceBtn">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1535,7 +1574,7 @@ QPushButton#deleteUserBtn:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">/* Normal state styling */
-QPushButton#pushButton_5 {
+QPushButton#addServiceBtn {
     color: white;
     background: #0BDABF;
     border: 2px solid #0BDABF;
@@ -1544,12 +1583,12 @@ QPushButton#pushButton_5 {
 }
 
 /* Hover state styling */
-QPushButton#pushButton_2:hover {
+QPushButton#addServiceBtn:hover {
     background: #08A79D; /* Change the color for hover effect */
 }
 
 /* Advanced styling */
-QPushButton#pushButton_2:pressed {
+QPushButton#addServiceBtn:pressed {
     background: #067267; /* Change the color for pressed effect */
     border: 2px solid #067267;
 }
@@ -1564,7 +1603,7 @@ QPushButton#pushButton_2:pressed {
             </widget>
            </item>
            <item row="15" column="0" colspan="2">
-            <widget class="QTableWidget" name="tableWidget_2">
+            <widget class="QTableWidget" name="showAllServices">
              <property name="selectionBehavior">
               <enum>QAbstractItemView::SelectRows</enum>
              </property>
@@ -1611,7 +1650,7 @@ QPushButton#pushButton_2:pressed {
             </widget>
            </item>
            <item row="16" column="0">
-            <widget class="QPushButton" name="pushButton_6">
+            <widget class="QPushButton" name="deleteServiceBtn">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1628,7 +1667,7 @@ QPushButton#pushButton_2:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">/* Normal state styling */
-QPushButton#pushButton_6 {
+QPushButton#deleteServiceBtn {
     color: white;
     background: #0BDABF;
     border: 2px solid #0BDABF;
@@ -1637,12 +1676,12 @@ QPushButton#pushButton_6 {
 }
 
 /* Hover state styling */
-QPushButton#pushButton_2:hover {
+QPushButton#deleteServiceBtn:hover {
     background: #08A79D; /* Change the color for hover effect */
 }
 
 /* Advanced styling */
-QPushButton#pushButton_2:pressed {
+QPushButton#deleteServiceBtn:pressed {
     background: #067267; /* Change the color for pressed effect */
     border: 2px solid #067267;
 }
@@ -1657,7 +1696,7 @@ QPushButton#pushButton_2:pressed {
             </widget>
            </item>
            <item row="16" column="1">
-            <widget class="QPushButton" name="pushButton_7">
+            <widget class="QPushButton" name="updateServiceBtn">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1674,7 +1713,7 @@ QPushButton#pushButton_2:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">/* Normal state styling */
-QPushButton#pushButton_7 {
+QPushButton#updateServiceBtn {
     color: white;
     background: #0BDABF;
     border: 2px solid #0BDABF;
@@ -1683,12 +1722,12 @@ QPushButton#pushButton_7 {
 }
 
 /* Hover state styling */
-QPushButton#pushButton_2:hover {
+QPushButton#updateServiceBtn:hover {
     background: #08A79D; /* Change the color for hover effect */
 }
 
 /* Advanced styling */
-QPushButton#pushButton_2:pressed {
+QPushButton#updateServiceBtn:pressed {
     background: #067267; /* Change the color for pressed effect */
     border: 2px solid #067267;
 }
@@ -1745,7 +1784,7 @@ QPushButton#pushButton_2:pressed {
             </widget>
            </item>
            <item row="8" column="0">
-            <widget class="QLineEdit" name="lineEdit_8">
+            <widget class="QLineEdit" name="servicePrice">
              <property name="maximumSize">
               <size>
                <width>500</width>
@@ -1765,7 +1804,7 @@ QPushButton#pushButton_2:pressed {
 border-bottom:2px solid black;</string>
              </property>
              <property name="text">
-              <string>Price</string>
+              <string/>
              </property>
             </widget>
            </item>
@@ -1821,12 +1860,12 @@ border-bottom:2px solid black;</string>
 border-bottom:2px solid black;</string>
              </property>
              <property name="text">
-              <string>Service Name</string>
+              <string/>
              </property>
             </widget>
            </item>
            <item row="10" column="0">
-            <widget class="QTextEdit" name="textEdit">
+            <widget class="QTextEdit" name="serviceDescription">
              <property name="maximumSize">
               <size>
                <width>500</width>
@@ -1838,7 +1877,7 @@ border-bottom:2px solid black;</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Description&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -2103,7 +2142,7 @@ border-bottom: 2px solid black;</string>
             </widget>
            </item>
            <item row="4" column="0">
-            <widget class="QComboBox" name="comboBox_4">
+            <widget class="QComboBox" name="customerID">
              <property name="minimumSize">
               <size>
                <width>0</width>

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>Images/logoutImage.png</file>
     <file>Images/icons8-close-128.png</file>
     <file>Images/icons8-hamburger-100.png</file>
     <file>Images/generate.png</file>

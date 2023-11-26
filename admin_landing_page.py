@@ -149,7 +149,7 @@ class Ui_MainWindow(object):
         self.frame_48.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_48.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_48.setObjectName("frame_48")
-        self.gridLayout_2.addWidget(self.frame_48, 11, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.frame_48, 12, 0, 1, 1)
         self.frame_51 = QtWidgets.QFrame(self.frame)
         self.frame_51.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_51.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -194,6 +194,30 @@ class Ui_MainWindow(object):
         self.label_2.setIndent(-3)
         self.label_2.setObjectName("label_2")
         self.gridLayout_2.addWidget(self.label_2, 1, 0, 1, 1)
+        self.logoutBtn = QtWidgets.QPushButton(self.frame)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.logoutBtn.setFont(font)
+        self.logoutBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.logoutBtn.setStyleSheet("QPushButton {\n"
+"    color: white;\n"
+"    background-color: #0BDABF;\n"
+"    padding: 15px;\n"
+"    border: none;\n"
+"    text-align: center;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #16E2CB;\n"
+"}\n"
+"")
+        self.logoutBtn.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/images/Images/logoutImage.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.logoutBtn.setIcon(icon4)
+        self.logoutBtn.setIconSize(QtCore.QSize(40, 40))
+        self.logoutBtn.setObjectName("logoutBtn")
+        self.gridLayout_2.addWidget(self.logoutBtn, 11, 0, 1, 1)
         self.gridLayout_39.addWidget(self.frame, 0, 0, 1, 1)
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setStyleSheet("")
@@ -914,7 +938,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
