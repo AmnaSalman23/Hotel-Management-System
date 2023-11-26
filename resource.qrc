@@ -1,5 +1,11 @@
 <RCC>
   <qresource prefix="images">
+    <file>Images/icons8-close-128.png</file>
+    <file>Images/icons8-hamburger-100.png</file>
+    <file>Images/generate.png</file>
+    <file>Images/magnifier.png</file>
+    <file>Images/booking room.png</file>
+    <file>Images/dashboard.png</file>
     <file>Images/Mobile-login-Cristina.jpg</file>
     <file>Images/icons8-close-480.png</file>
     <file>Images/icons8-square-100.png</file>

@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1106, 854)
+        MainWindow.resize(1197, 854)
         MainWindow.setStyleSheet("margin:0;\n"
 "padding:0;\n"
 "background:#FFFFFF;")
@@ -24,8 +24,8 @@ class Ui_MainWindow(object):
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setMinimumSize(QtCore.QSize(250, 0))
-        self.frame.setMaximumSize(QtCore.QSize(250, 16777215))
+        self.frame.setMinimumSize(QtCore.QSize(100, 0))
+        self.frame.setMaximumSize(QtCore.QSize(100, 16777215))
         self.frame.setStyleSheet("background:#0BDABF;\n"
 "margin:0;\n"
 "padding:0;")
@@ -34,29 +34,6 @@ class Ui_MainWindow(object):
         self.frame.setObjectName("frame")
         self.gridLayout = QtWidgets.QGridLayout(self.frame)
         self.gridLayout.setObjectName("gridLayout")
-        self.frame_3 = QtWidgets.QFrame(self.frame)
-        self.frame_3.setMaximumSize(QtCore.QSize(16777215, 140))
-        self.frame_3.setStyleSheet("color:white;\n"
-"background:#0BDABF;\n"
-"padding:15px;\n"
-"border:none;\n"
-"text-align:cneter;")
-        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_3.setObjectName("frame_3")
-        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_3)
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.label = QtWidgets.QLabel(self.frame_3)
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label.setFont(font)
-        self.label.setStyleSheet("text-align:center;\n"
-"color:white;")
-        self.label.setObjectName("label")
-        self.gridLayout_3.addWidget(self.label, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        self.gridLayout.addWidget(self.frame_3, 0, 0, 1, 1)
         self.frame_4 = QtWidgets.QFrame(self.frame)
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -68,72 +45,179 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.dashboardBtn.setFont(font)
         self.dashboardBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.dashboardBtn.setStyleSheet("color:white;\n"
-"background:#0BDABF;\n"
-"padding:15px;\n"
-"border:none;\n"
-"text-align:cneter;")
-        self.dashboardBtn.setIconSize(QtCore.QSize(30, 30))
+        self.dashboardBtn.setStyleSheet("QPushButton {\n"
+"    color: white;\n"
+"    background-color: #0BDABF;\n"
+"    padding: 15px;\n"
+"    border: none;\n"
+"    text-align: center;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #16E2CB;\n"
+"}\n"
+"")
+        self.dashboardBtn.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/images/Images/dashboard.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.dashboardBtn.setIcon(icon)
+        self.dashboardBtn.setIconSize(QtCore.QSize(40, 40))
         self.dashboardBtn.setObjectName("dashboardBtn")
-        self.verticalLayout.addWidget(self.dashboardBtn)
+        self.verticalLayout.addWidget(self.dashboardBtn, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.addRouterBtn = QtWidgets.QPushButton(self.frame_4)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.addRouterBtn.setFont(font)
         self.addRouterBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.addRouterBtn.setStyleSheet("color:white;\n"
-"background:#0BDABF;\n"
-"padding:15px;\n"
-"border:none;\n"
-"text-align:cneter;")
-        self.addRouterBtn.setIconSize(QtCore.QSize(30, 30))
+        self.addRouterBtn.setStyleSheet("QPushButton {\n"
+"    color: white;\n"
+"    background-color: #0BDABF;\n"
+"    padding: 15px;\n"
+"    border: none;\n"
+"    text-align: center;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #16E2CB;\n"
+"}\n"
+"")
+        self.addRouterBtn.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/images/Images/booking room.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.addRouterBtn.setIcon(icon1)
+        self.addRouterBtn.setIconSize(QtCore.QSize(40, 40))
         self.addRouterBtn.setObjectName("addRouterBtn")
-        self.verticalLayout.addWidget(self.addRouterBtn)
+        self.verticalLayout.addWidget(self.addRouterBtn, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.usersBtn = QtWidgets.QPushButton(self.frame_4)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.usersBtn.setFont(font)
         self.usersBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.usersBtn.setStyleSheet("color:white;\n"
-"background:#0BDABF;\n"
-"padding:15px;\n"
-"border:none;\n"
-"text-align:cneter;")
-        self.usersBtn.setIconSize(QtCore.QSize(30, 30))
+        self.usersBtn.setStyleSheet("QPushButton {\n"
+"    color: white;\n"
+"    background-color: #0BDABF;\n"
+"    padding: 15px;\n"
+"    border: none;\n"
+"    text-align: center;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #16E2CB;\n"
+"}\n"
+"")
+        self.usersBtn.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/images/Images/man-line-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.usersBtn.setIcon(icon2)
+        self.usersBtn.setIconSize(QtCore.QSize(40, 40))
         self.usersBtn.setObjectName("usersBtn")
-        self.verticalLayout.addWidget(self.usersBtn)
+        self.verticalLayout.addWidget(self.usersBtn, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.searchUserBtn = QtWidgets.QPushButton(self.frame_4)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.searchUserBtn.setFont(font)
         self.searchUserBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.searchUserBtn.setStyleSheet("color:white;\n"
-"background:#0BDABF;\n"
-"padding:15px;\n"
-"border:none;\n"
-"text-align:cneter;")
-        self.searchUserBtn.setIconSize(QtCore.QSize(30, 30))
+        self.searchUserBtn.setStyleSheet("QPushButton {\n"
+"    color: white;\n"
+"    background-color: #0BDABF;\n"
+"    padding: 15px;\n"
+"    border: none;\n"
+"    text-align: center;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #16E2CB;\n"
+"}\n"
+"")
+        self.searchUserBtn.setText("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/images/Images/magnifier.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.searchUserBtn.setIcon(icon3)
+        self.searchUserBtn.setIconSize(QtCore.QSize(40, 40))
         self.searchUserBtn.setObjectName("searchUserBtn")
-        self.verticalLayout.addWidget(self.searchUserBtn)
+        self.verticalLayout.addWidget(self.searchUserBtn, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.searchUserBtn_2 = QtWidgets.QPushButton(self.frame_4)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.searchUserBtn_2.setFont(font)
         self.searchUserBtn_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.searchUserBtn_2.setStyleSheet("color:white;\n"
-"background:#0BDABF;\n"
-"padding:15px;\n"
-"border:none;\n"
-"text-align:cneter;")
-        self.searchUserBtn_2.setIconSize(QtCore.QSize(30, 30))
+        self.searchUserBtn_2.setStyleSheet("QPushButton {\n"
+"    color: white;\n"
+"    background-color: #0BDABF;\n"
+"    padding: 15px;\n"
+"    border: none;\n"
+"    text-align: center;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #16E2CB;\n"
+"}\n"
+"")
+        self.searchUserBtn_2.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/images/Images/generate.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.searchUserBtn_2.setIcon(icon4)
+        self.searchUserBtn_2.setIconSize(QtCore.QSize(40, 40))
         self.searchUserBtn_2.setObjectName("searchUserBtn_2")
-        self.verticalLayout.addWidget(self.searchUserBtn_2)
+        self.verticalLayout.addWidget(self.searchUserBtn_2, 0, QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.frame_2 = QtWidgets.QFrame(self.frame_4)
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.verticalLayout.addWidget(self.frame_2)
-        self.gridLayout.addWidget(self.frame_4, 1, 0, 1, 1)
+        self.frame_12 = QtWidgets.QFrame(self.frame_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_12.sizePolicy().hasHeightForWidth())
+        self.frame_12.setSizePolicy(sizePolicy)
+        self.frame_12.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_12.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_12.setObjectName("frame_12")
+        self.verticalLayout.addWidget(self.frame_12)
+        self.gridLayout.addWidget(self.frame_4, 4, 0, 1, 1)
+        self.frame_3 = QtWidgets.QFrame(self.frame)
+        self.frame_3.setMaximumSize(QtCore.QSize(16777215, 140))
+        self.frame_3.setStyleSheet("color:white;\n"
+"background:#0BDABF;\n"
+"padding:0px;\n"
+"border:none;\n"
+"text-align:cneter;")
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_3)
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.gridLayout.addWidget(self.frame_3, 3, 0, 1, 1)
+        self.navBar = QtWidgets.QPushButton(self.frame)
+        self.navBar.setMinimumSize(QtCore.QSize(50, 50))
+        self.navBar.setMaximumSize(QtCore.QSize(50, 50))
+        self.navBar.setStyleSheet("border:none;")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(":/images/Images/icons8-hamburger-100.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.navBar.setIcon(icon5)
+        self.navBar.setIconSize(QtCore.QSize(50, 50))
+        self.navBar.setObjectName("navBar")
+        self.gridLayout.addWidget(self.navBar, 0, 0, 1, 1, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label = QtWidgets.QLabel(self.frame)
+        self.label.setMinimumSize(QtCore.QSize(50, 0))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setStyleSheet("text-align:left;\n"
+"color:white;\n"
+"border:none;\n"
+"margin:0;\n"
+"margin-top:20px;\n"
+"padding:0;")
+        self.label.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.label.setLineWidth(5)
+        self.label.setMidLineWidth(1)
+        self.label.setIndent(-3)
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 1, 0, 1, 1, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.gridLayout_2.addWidget(self.frame, 0, 0, 1, 1)
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName("stackedWidget")
@@ -155,9 +239,16 @@ class Ui_MainWindow(object):
         self.frame_15.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_15.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_15.setObjectName("frame_15")
+        self.gridLayout_7 = QtWidgets.QGridLayout(self.frame_15)
+        self.gridLayout_7.setObjectName("gridLayout_7")
         self.frame_5 = QtWidgets.QFrame(self.frame_15)
-        self.frame_5.setGeometry(QtCore.QRect(12, 12, 180, 140))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
+        self.frame_5.setSizePolicy(sizePolicy)
         self.frame_5.setMinimumSize(QtCore.QSize(180, 140))
+        self.frame_5.setMaximumSize(QtCore.QSize(16777215, 140))
         self.frame_5.setStyleSheet("background:#F2F2F2;\n"
 "border-radius:15px;\n"
 "color:black;")
@@ -165,6 +256,7 @@ class Ui_MainWindow(object):
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_5.setObjectName("frame_5")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.frame_5)
+        self.gridLayout_4.setSizeConstraint(QtWidgets.QLayout.SetMinAndMaxSize)
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.label_14 = QtWidgets.QLabel(self.frame_5)
         font = QtGui.QFont()
@@ -186,8 +278,13 @@ class Ui_MainWindow(object):
 "color:black;")
         self.label_9.setObjectName("label_9")
         self.gridLayout_4.addWidget(self.label_9, 0, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.frame_5, 0, 0, 1, 1)
         self.frame_6 = QtWidgets.QFrame(self.frame_15)
-        self.frame_6.setGeometry(QtCore.QRect(275, 12, 180, 140))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_6.sizePolicy().hasHeightForWidth())
+        self.frame_6.setSizePolicy(sizePolicy)
         self.frame_6.setMinimumSize(QtCore.QSize(180, 140))
         self.frame_6.setStyleSheet("background:#f5f5f5;\n"
 "border-radius:15px;")
@@ -216,8 +313,13 @@ class Ui_MainWindow(object):
 "color:black;")
         self.label_13.setObjectName("label_13")
         self.gridLayout_5.addWidget(self.label_13, 1, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.frame_6, 0, 1, 1, 1)
         self.frame_8 = QtWidgets.QFrame(self.frame_15)
-        self.frame_8.setGeometry(QtCore.QRect(537, 12, 180, 140))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_8.sizePolicy().hasHeightForWidth())
+        self.frame_8.setSizePolicy(sizePolicy)
         self.frame_8.setMinimumSize(QtCore.QSize(180, 140))
         self.frame_8.setStyleSheet("background:#f5f5f5;\n"
 "border-radius:15px;")
@@ -246,32 +348,10 @@ class Ui_MainWindow(object):
 "color:black;")
         self.label_12.setObjectName("label_12")
         self.gridLayout_6.addWidget(self.label_12, 1, 0, 1, 1)
-        self.frame_9 = QtWidgets.QFrame(self.frame_15)
-        self.frame_9.setGeometry(QtCore.QRect(12, 398, 24, 261))
-        self.frame_9.setMinimumSize(QtCore.QSize(0, 200))
-        self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_9.setObjectName("frame_9")
-        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.frame_9)
-        self.verticalLayout_6.setObjectName("verticalLayout_6")
-        self.frame_10 = QtWidgets.QFrame(self.frame_9)
-        self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_10.setObjectName("frame_10")
-        self.label_15 = QtWidgets.QLabel(self.frame_10)
-        self.label_15.setGeometry(QtCore.QRect(0, -30, 757, 90))
-        self.label_15.setMaximumSize(QtCore.QSize(16777215, 90))
-        font = QtGui.QFont()
-        font.setPointSize(20)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_15.setFont(font)
-        self.label_15.setStyleSheet("text-align:center;\n"
-"color:white;")
-        self.label_15.setObjectName("label_15")
-        self.verticalLayout_6.addWidget(self.frame_10)
-        self.label_4 = QtWidgets.QLabel(self.frame_15)
-        self.label_4.setGeometry(QtCore.QRect(20, 160, 805, 50))
+        self.gridLayout_7.addWidget(self.frame_8, 0, 2, 1, 1)
+        self.verticalLayout_2.addWidget(self.frame_15, 0, QtCore.Qt.AlignTop)
+        self.label_4 = QtWidgets.QLabel(self.Dashboard)
+        self.label_4.setMaximumSize(QtCore.QSize(16777215, 70))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(18)
@@ -279,10 +359,195 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
-        self.graphicsView = PlotWidget(self.frame_15)
-        self.graphicsView.setGeometry(QtCore.QRect(30, 230, 741, 451))
-        self.graphicsView.setObjectName("graphicsView")
-        self.verticalLayout_2.addWidget(self.frame_15)
+        self.verticalLayout_2.addWidget(self.label_4)
+        self.frame_7 = QtWidgets.QFrame(self.Dashboard)
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.gridLayout_9 = QtWidgets.QGridLayout(self.frame_7)
+        self.gridLayout_9.setObjectName("gridLayout_9")
+        self.frame_64 = QtWidgets.QFrame(self.frame_7)
+        self.frame_64.setStyleSheet("background:#f5f5f5;\n"
+"border-radius:15px;")
+        self.frame_64.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_64.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_64.setObjectName("frame_64")
+        self.gridLayout_8 = QtWidgets.QGridLayout(self.frame_64)
+        self.gridLayout_8.setObjectName("gridLayout_8")
+        self.label_51 = QtWidgets.QLabel(self.frame_64)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_51.setFont(font)
+        self.label_51.setStyleSheet("color: grey;")
+        self.label_51.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.label_51.setObjectName("label_51")
+        self.gridLayout_8.addWidget(self.label_51, 7, 1, 1, 1)
+        self.label_53 = QtWidgets.QLabel(self.frame_64)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_53.setFont(font)
+        self.label_53.setStyleSheet("color:#48ACAC")
+        self.label_53.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.label_53.setObjectName("label_53")
+        self.gridLayout_8.addWidget(self.label_53, 5, 2, 1, 1)
+        self.label_50 = QtWidgets.QLabel(self.frame_64)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_50.setFont(font)
+        self.label_50.setStyleSheet("color:#48ACAC")
+        self.label_50.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.label_50.setObjectName("label_50")
+        self.gridLayout_8.addWidget(self.label_50, 5, 1, 1, 1)
+        self.label_43 = QtWidgets.QLabel(self.frame_64)
+        self.label_43.setMinimumSize(QtCore.QSize(0, 20))
+        self.label_43.setMaximumSize(QtCore.QSize(16777215, 15))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_43.setFont(font)
+        self.label_43.setStyleSheet("color:#48ACAC")
+        self.label_43.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.label_43.setObjectName("label_43")
+        self.gridLayout_8.addWidget(self.label_43, 6, 1, 1, 1)
+        self.label_52 = QtWidgets.QLabel(self.frame_64)
+        self.label_52.setMinimumSize(QtCore.QSize(0, 20))
+        self.label_52.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_52.setFont(font)
+        self.label_52.setStyleSheet("color: grey;")
+        self.label_52.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.label_52.setObjectName("label_52")
+        self.gridLayout_8.addWidget(self.label_52, 8, 1, 1, 1)
+        self.label_39 = QtWidgets.QLabel(self.frame_64)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_39.setFont(font)
+        self.label_39.setStyleSheet("color:#48ACAC;\n"
+"image: url(:/Icons/Icons/icons8-scroll-down-50.png);")
+        self.label_39.setText("")
+        self.label_39.setObjectName("label_39")
+        self.gridLayout_8.addWidget(self.label_39, 7, 3, 1, 1)
+        self.label_54 = QtWidgets.QLabel(self.frame_64)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_54.setFont(font)
+        self.label_54.setStyleSheet("color: grey;")
+        self.label_54.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.label_54.setObjectName("label_54")
+        self.gridLayout_8.addWidget(self.label_54, 7, 2, 1, 1)
+        self.label_45 = QtWidgets.QLabel(self.frame_64)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_45.setFont(font)
+        self.label_45.setStyleSheet("color:black")
+        self.label_45.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.label_45.setObjectName("label_45")
+        self.gridLayout_8.addWidget(self.label_45, 3, 1, 1, 1)
+        self.label_37 = QtWidgets.QLabel(self.frame_64)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_37.setFont(font)
+        self.label_37.setStyleSheet("color:#48ACAC;\n"
+"image: url(:/Icons/Icons/icons8-scroll-up-50.png);")
+        self.label_37.setText("")
+        self.label_37.setObjectName("label_37")
+        self.gridLayout_8.addWidget(self.label_37, 5, 3, 1, 1)
+        self.label_18 = QtWidgets.QLabel(self.frame_64)
+        self.label_18.setMaximumSize(QtCore.QSize(16777215, 15))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_18.setFont(font)
+        self.label_18.setStyleSheet("color: #48ACAC;")
+        self.label_18.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.label_18.setObjectName("label_18")
+        self.gridLayout_8.addWidget(self.label_18, 4, 1, 1, 1)
+        self.gridLayout_9.addWidget(self.frame_64, 0, 1, 3, 1)
+        self.frame_11 = QtWidgets.QFrame(self.frame_7)
+        self.frame_11.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_11.setObjectName("frame_11")
+        self.gridLayout_11 = QtWidgets.QGridLayout(self.frame_11)
+        self.gridLayout_11.setObjectName("gridLayout_11")
+        self.label_56 = QtWidgets.QLabel(self.frame_11)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_56.setFont(font)
+        self.label_56.setStyleSheet("color: grey;")
+        self.label_56.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.label_56.setObjectName("label_56")
+        self.gridLayout_11.addWidget(self.label_56, 0, 0, 1, 1, QtCore.Qt.AlignTop)
+        self.lblSalePerDay_2 = QtWidgets.QLabel(self.frame_11)
+        self.lblSalePerDay_2.setMinimumSize(QtCore.QSize(200, 140))
+        self.lblSalePerDay_2.setStyleSheet("background:#f5f5f5;\n"
+"border-radius:15px;")
+        self.lblSalePerDay_2.setText("")
+        self.lblSalePerDay_2.setObjectName("lblSalePerDay_2")
+        self.gridLayout_11.addWidget(self.lblSalePerDay_2, 0, 1, 1, 1)
+        self.gridLayout_9.addWidget(self.frame_11, 2, 0, 1, 1)
+        self.frame_10 = QtWidgets.QFrame(self.frame_7)
+        self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_10.setObjectName("frame_10")
+        self.gridLayout_10 = QtWidgets.QGridLayout(self.frame_10)
+        self.gridLayout_10.setObjectName("gridLayout_10")
+        self.label_55 = QtWidgets.QLabel(self.frame_10)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_55.setFont(font)
+        self.label_55.setStyleSheet("color: grey;")
+        self.label_55.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.label_55.setObjectName("label_55")
+        self.gridLayout_10.addWidget(self.label_55, 0, 0, 1, 1, QtCore.Qt.AlignTop)
+        self.lblSalePerDay = QtWidgets.QLabel(self.frame_10)
+        self.lblSalePerDay.setMinimumSize(QtCore.QSize(200, 140))
+        self.lblSalePerDay.setStyleSheet("background:#f5f5f5;\n"
+"border-radius:15px;")
+        self.lblSalePerDay.setText("")
+        self.lblSalePerDay.setObjectName("lblSalePerDay")
+        self.gridLayout_10.addWidget(self.lblSalePerDay, 0, 1, 1, 1)
+        self.gridLayout_9.addWidget(self.frame_10, 0, 0, 2, 1)
+        self.verticalLayout_2.addWidget(self.frame_7)
+        self.frame_9 = QtWidgets.QFrame(self.Dashboard)
+        self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_9.setObjectName("frame_9")
+        self.verticalLayout_2.addWidget(self.frame_9)
         self.stackedWidget.addWidget(self.Dashboard)
         self.createUserPage = QtWidgets.QWidget()
         self.createUserPage.setObjectName("createUserPage")
@@ -330,12 +595,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "InnSync"))
-        self.dashboardBtn.setText(_translate("MainWindow", "Dashboard"))
-        self.addRouterBtn.setText(_translate("MainWindow", "Book Room"))
-        self.usersBtn.setText(_translate("MainWindow", "Users"))
-        self.searchUserBtn.setText(_translate("MainWindow", "Search User"))
-        self.searchUserBtn_2.setText(_translate("MainWindow", "Generate"))
+        self.navBar.setText(_translate("MainWindow", "-"))
+        self.label.setText(_translate("MainWindow", "Inn\n"
+"Sync"))
         self.label_3.setText(_translate("MainWindow", "Dashboard"))
         self.label_14.setText(_translate("MainWindow", "750"))
         self.label_9.setText(_translate("MainWindow", "Total Users"))
@@ -343,8 +605,16 @@ class Ui_MainWindow(object):
         self.label_13.setText(_translate("MainWindow", "500"))
         self.label_11.setText(_translate("MainWindow", "Kicked Users"))
         self.label_12.setText(_translate("MainWindow", "150"))
-        self.label_15.setText(_translate("MainWindow", "Notifications:"))
-        self.label_4.setText(_translate("MainWindow", "Dashboard"))
+        self.label_4.setText(_translate("MainWindow", "Market Place"))
+        self.label_51.setText(_translate("MainWindow", "Worst Selling"))
+        self.label_53.setText(_translate("MainWindow", "312"))
+        self.label_50.setText(_translate("MainWindow", "Best Selling"))
+        self.label_43.setText(_translate("MainWindow", "Sunday"))
+        self.label_52.setText(_translate("MainWindow", "Friday"))
+        self.label_54.setText(_translate("MainWindow", "123"))
+        self.label_45.setText(_translate("MainWindow", "Sales"))
+        self.label_18.setText(_translate("MainWindow", "Calculated in last 7 days"))
+        self.label_56.setText(_translate("MainWindow", "Worst Selling"))
+        self.label_55.setText(_translate("MainWindow", "Worst Selling"))
         self.label_6.setText(_translate("MainWindow", "Modify Users"))
-from pyqtgraph import PlotWidget
 import resource_rc
