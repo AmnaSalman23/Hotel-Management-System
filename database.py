@@ -63,6 +63,15 @@ def create_database():
     ''')
 
     cursor.execute('''
+        CREATE TABLE IF NOT EXISTS Services (
+            ServiceID INTEGER PRIMARY KEY,
+            ServiceName TEXT,
+            Description TEXT,
+            Price REAL
+        )
+    ''')
+
+    cursor.execute('''
         CREATE TABLE IF NOT EXISTS Users (
             UserID INTEGER PRIMARY KEY,
             Username TEXT UNIQUE,

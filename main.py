@@ -11,7 +11,6 @@ import pyqtgraph as pg
 import numpy as np
 import matplotlib.pyplot as plt
 from PyQt5.QtGui import QPixmap
-# from PyQt5.QtWidgets import QPropertyAnimation, QGraphicsOpacityEffect
 from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, QSize
 from PyQt5.QtGui import QIcon
 from database import create_database
@@ -75,42 +74,19 @@ class MainUIClass(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
-        
-        # self.setWindowFlags(Qt.FramelessWindowHint)  # Remove the default title bar
-        # self.ui.frame_7.mousePressEvent = self.onTitleBarMousePress
-        # self.ui.frame_7.mouseMoveEvent = self.onTitleBarMouseMove
-        # self.ui.centralwidget.layout().setContentsMargins(0, 0, 0, 0)
-
-        
-        # self.ui.closeBtn.clicked.connect(self.close_application)
-        # self.ui.resizeBtn.clicked.connect(self.resize_application)
-        # self.ui.minimizeBtn.clicked.connect(self.minimize_application)
-        
         self.ui.dashboardBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.Dashboard))
         
         # PAGE 2 Settings Page
-        self.ui.addRouterBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.AddRouter))
+        self.ui.manageUsersBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageStaffPage))
         
-        self.ui.usersBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.createUserPage))
+        self.ui.manageServicesBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageServicePage))
         
-        self.ui.searchUserBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_2))
+        self.ui.manageBookingBtn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageBookingPage))
         self.ui.navBar.clicked.connect(self.toggle_sidebar)
         self.loadAllEmployeesGraph()
 
         # Initialize sidebar state (visible)
         self.sidebar_visible = False
-        # self.plotCircularGraph()
-
-    # def plotCircularGraph(self):
-    #     # Create circular data
-    #     theta = np.linspace(0, 2 * np.pi, 100)
-    #     x = 10 * np.cos(theta)
-    #     y = 10 * np.sin(theta)
-
-    #     # Plot the circular graph
-    #     self.ui.graphicsView.clear()  # Clear existing plots
-    #     self.ui.graphicsView.plot(x, y, pen='b', symbol='o', symbolPen='b', symbolBrush=0.2, name='Circular Plot')
-
         
 
     
@@ -124,21 +100,6 @@ class MainUIClass(QMainWindow):
             self.move(event.globalPos() - self.drag_position)
             event.accept()
     
-    def close_application(self):
-        # Handle the close action here
-        self.close()
-
-    def resize_application(self):
-        if self.isMaximized():
-            self.showNormal()
-        else:
-            self.showMaximized()
-    
-    def minimize_application(self):
-        self.showMinimized()
-        # Connect signals and slots (add your custom logic here)
-        # self.ui.pushButton.clicked.connect(self.on_button_click)
-
     def on_button_click(self):
         # Define what happens when the button is clicked
         self.ui.label.setText("Button Clicked!")
@@ -173,11 +134,11 @@ class MainUIClass(QMainWindow):
         # Toggle the sidebar visibility
         # self.sidebar_visible = not self.sidebar_visible
         self.ui.dashboardBtn.setText("Dashboard" if self.sidebar_visible else "")
-        self.ui.addRouterBtn.setText("Add Router" if self.sidebar_visible else "")
-        self.ui.usersBtn.setText("Users" if self.sidebar_visible else "")
-        self.ui.searchUserBtn.setText("Search User" if self.sidebar_visible else "")
+        self.ui.manageUsersBtn.setText("Manage Staff" if self.sidebar_visible else "")
+        self.ui.manageServicesBtn.setText("Services" if self.sidebar_visible else "")
+        self.ui.manageBookingBtn_2.setText("Booking" if self.sidebar_visible else "")
         # self.ui.navBar.setText(">" if self.sidebar_visible else "<")
-        self.ui.searchUserBtn_2.setText("Generate" if self.sidebar_visible else "")
+        self.ui.managePaymentsBtn.setText("Payments" if self.sidebar_visible else "")
         self.ui.label.setText("InnSync" if self.sidebar_visible else "Inn\nSync")
         # self.ui.pushButton.setFixedWidth(50 if self.sidebar_visible else 0)
         
@@ -195,8 +156,6 @@ class MainUIClass(QMainWindow):
 def main():
 
     app = QApplication(sys.argv)
-    # loginWindow=LoginPageUI()
-    # loginWindow.show()
     window = MainUIClass()
     window.show()
     sys.exit(app.exec_())
