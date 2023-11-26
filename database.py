@@ -27,8 +27,8 @@ def create_database():
     ''')
 
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS Reservations (
-            ReservationID INTEGER PRIMARY KEY,
+        CREATE TABLE IF NOT EXISTS RoomBookings (
+            BookingID INTEGER PRIMARY KEY,
             CustomerID INTEGER,
             RoomNumber INTEGER,
             CheckInDateTime TEXT,
@@ -58,7 +58,7 @@ def create_database():
             ReservationID INTEGER,
             FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
             FOREIGN KEY (MealID) REFERENCES Meals(MealID),
-            FOREIGN KEY (ReservationID) REFERENCES Reservations(ReservationID)
+            FOREIGN KEY (ReservationID) REFERENCES RoomBookings(BookingID)
         )
     ''')
 

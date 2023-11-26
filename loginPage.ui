@@ -33,12 +33,44 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0" rowspan="5">
+       <item row="0" column="0" rowspan="6">
         <widget class="QFrame" name="frame_3">
          <property name="minimumSize">
           <size>
            <width>50</width>
            <height>0</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2" rowspan="3">
+        <widget class="QFrame" name="frame_4">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QFrame" name="frame_12">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>50</height>
           </size>
          </property>
          <property name="frameShape">
@@ -81,22 +113,6 @@
            </widget>
           </item>
          </layout>
-        </widget>
-       </item>
-       <item row="0" column="2" rowspan="5">
-        <widget class="QFrame" name="frame_4">
-         <property name="minimumSize">
-          <size>
-           <width>50</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
         </widget>
        </item>
        <item row="1" column="1">
@@ -158,7 +174,7 @@
            </widget>
           </item>
           <item row="1" column="1" alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="pushButton_4">
+           <widget class="QPushButton" name="registerNowBtn">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -204,123 +220,31 @@ border:none;
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QTextEdit" name="textEdit">
-         <property name="maximumSize">
-          <size>
-           <width>500</width>
-           <height>70</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">border:none;
-border-bottom:2px solid black;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QTextEdit" name="textEdit_2">
-         <property name="maximumSize">
-          <size>
-           <width>500</width>
-           <height>80</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">border:none;
-border-bottom:2px solid black;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QFrame" name="frame_9">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QCheckBox" name="checkBox">
+         <widget class="QLineEdit" name="userNameInput">
           <property name="geometry">
            <rect>
-            <x>10</x>
-            <y>0</y>
-            <width>392</width>
-            <height>24</height>
+            <x>0</x>
+            <y>30</y>
+            <width>489</width>
+            <height>28</height>
            </rect>
           </property>
           <property name="font">
            <font>
             <family>Roboto</family>
-            <pointsize>10</pointsize>
+            <pointsize>12</pointsize>
             <weight>50</weight>
             <bold>false</bold>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">border:none;
+border-bottom:2px solid black;</string>
+          </property>
           <property name="text">
-           <string>Show Password</string>
+           <string/>
           </property>
          </widget>
-        </widget>
-       </item>
-       <item row="6" column="1">
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>60</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>14</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">/* Normal state styling */
-QPushButton#pushButton_2 {
-    color: white;
-    background: #0BDABF;
-    border: 2px solid #0BDABF;
-    border-radius: 5px;
-    padding: 5px 10px;
-}
-
-/* Hover state styling */
-QPushButton#pushButton_2:hover {
-    background: #08A79D; /* Change the color for hover effect */
-}
-
-/* Advanced styling */
-QPushButton#pushButton_2:pressed {
-    background: #067267; /* Change the color for pressed effect */
-    border: 2px solid #067267;
-}
-
-/* Add any other advanced styling here */
-
-</string>
-         </property>
-         <property name="text">
-          <string>Login</string>
-         </property>
         </widget>
        </item>
        <item row="7" column="1">
@@ -330,6 +254,102 @@ QPushButton#pushButton_2:pressed {
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QFrame" name="frame_9">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QPushButton" name="loginBtn">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>20</y>
+            <width>380</width>
+            <height>60</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">/* Normal state styling */
+QPushButton#loginBtn {
+    color: white;
+    background: #0BDABF;
+    border: 2px solid #0BDABF;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+/* Hover state styling */
+QPushButton#loginBtn:hover {
+    background: #08A79D; /* Change the color for hover effect */
+}
+
+/* Advanced styling */
+QPushButton#loginBtn:pressed {
+    background: #067267; /* Change the color for pressed effect */
+    border: 2px solid #067267;
+}
+
+/* Add any other advanced styling here */
+
+</string>
+          </property>
+          <property name="text">
+           <string>Login</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="showPasswordBtn">
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Show Password</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="userPasswordInput">
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border:none;
+border-bottom:2px solid black;</string>
+         </property>
+         <property name="text">
+          <string/>
          </property>
         </widget>
        </item>
@@ -372,6 +392,16 @@ QPushButton#pushButton_2:pressed {
         </widget>
        </item>
       </layout>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QFrame" name="frame_11">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
      </widget>
     </item>
    </layout>

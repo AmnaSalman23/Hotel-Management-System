@@ -44,6 +44,73 @@ class Ui_MainWindow(object):
         self.frame_2.setObjectName("frame_2")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.frame_2)
         self.gridLayout_2.setObjectName("gridLayout_2")
+        self.signUpBtn = QtWidgets.QPushButton(self.frame_2)
+        self.signUpBtn.setMinimumSize(QtCore.QSize(0, 60))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.signUpBtn.setFont(font)
+        self.signUpBtn.setStyleSheet("/* Normal state styling */\n"
+"QPushButton#signUpBtn {\n"
+"    color: white;\n"
+"    background: #0BDABF;\n"
+"    border: 2px solid #0BDABF;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px 10px;\n"
+"}\n"
+"\n"
+"/* Hover state styling */\n"
+"QPushButton#signUpBtn:hover {\n"
+"    background: #08A79D; /* Change the color for hover effect */\n"
+"}\n"
+"\n"
+"/* Advanced styling */\n"
+"QPushButton#signUpBtn:pressed {\n"
+"    background: #067267; /* Change the color for pressed effect */\n"
+"    border: 2px solid #067267;\n"
+"}\n"
+"\n"
+"/* Add any other advanced styling here */\n"
+"\n"
+"")
+        self.signUpBtn.setObjectName("signUpBtn")
+        self.gridLayout_2.addWidget(self.signUpBtn, 14, 1, 1, 2)
+        self.showPasswordBtn = QtWidgets.QCheckBox(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.showPasswordBtn.setFont(font)
+        self.showPasswordBtn.setObjectName("showPasswordBtn")
+        self.gridLayout_2.addWidget(self.showPasswordBtn, 12, 1, 1, 2)
+        self.frame_12 = QtWidgets.QFrame(self.frame_2)
+        self.frame_12.setMaximumSize(QtCore.QSize(16777215, 40))
+        self.frame_12.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_12.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_12.setObjectName("frame_12")
+        self.gridLayout_2.addWidget(self.frame_12, 10, 1, 2, 1)
+        self.frame_5 = QtWidgets.QFrame(self.frame_2)
+        self.frame_5.setMinimumSize(QtCore.QSize(0, 80))
+        self.frame_5.setMaximumSize(QtCore.QSize(16777215, 40))
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.userNameInput = QtWidgets.QLineEdit(self.frame_5)
+        self.userNameInput.setGeometry(QtCore.QRect(0, 30, 489, 28))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.userNameInput.setFont(font)
+        self.userNameInput.setStyleSheet("border:none;\n"
+"border-bottom:2px solid black;")
+        self.userNameInput.setText("")
+        self.userNameInput.setObjectName("userNameInput")
+        self.gridLayout_2.addWidget(self.frame_5, 2, 1, 1, 3)
         self.frame_8 = QtWidgets.QFrame(self.frame_2)
         self.frame_8.setMaximumSize(QtCore.QSize(16777215, 80))
         self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -57,23 +124,33 @@ class Ui_MainWindow(object):
         self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_10.setObjectName("frame_10")
         self.horizontalLayout.addWidget(self.frame_10)
-        self.gridLayout_2.addWidget(self.frame_8, 0, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.frame_8, 0, 1, 1, 2)
+        self.frame_11 = QtWidgets.QFrame(self.frame_2)
+        self.frame_11.setMaximumSize(QtCore.QSize(16777215, 40))
+        self.frame_11.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_11.setObjectName("frame_11")
+        self.gridLayout_2.addWidget(self.frame_11, 3, 1, 1, 3)
+        self.frame_9 = QtWidgets.QFrame(self.frame_2)
+        self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_9.setObjectName("frame_9")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_9)
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.gridLayout_2.addWidget(self.frame_9, 13, 1, 1, 2)
+        self.frame_4 = QtWidgets.QFrame(self.frame_2)
+        self.frame_4.setMinimumSize(QtCore.QSize(50, 0))
+        self.frame_4.setMaximumSize(QtCore.QSize(16777215, 600))
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.gridLayout_2.addWidget(self.frame_4, 1, 4, 15, 1)
         self.frame_3 = QtWidgets.QFrame(self.frame_2)
         self.frame_3.setMinimumSize(QtCore.QSize(50, 0))
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
-        self.gridLayout_2.addWidget(self.frame_3, 0, 0, 6, 1)
-        self.frame_9 = QtWidgets.QFrame(self.frame_2)
-        self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_9.setObjectName("frame_9")
-        self.gridLayout_2.addWidget(self.frame_9, 6, 1, 1, 1)
-        self.frame_7 = QtWidgets.QFrame(self.frame_2)
-        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_7.setObjectName("frame_7")
-        self.gridLayout_2.addWidget(self.frame_7, 8, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.frame_3, 0, 0, 12, 1)
         self.frame_6 = QtWidgets.QFrame(self.frame_2)
         self.frame_6.setMinimumSize(QtCore.QSize(0, 80))
         self.frame_6.setMaximumSize(QtCore.QSize(16777215, 70))
@@ -100,94 +177,64 @@ class Ui_MainWindow(object):
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.gridLayout_4.addWidget(self.label_2, 1, 0, 1, 1, QtCore.Qt.AlignLeft)
-        self.pushButton_4 = QtWidgets.QPushButton(self.frame_6)
-        self.pushButton_4.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.loginBtn = QtWidgets.QPushButton(self.frame_6)
+        self.loginBtn.setMaximumSize(QtCore.QSize(100, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(10)
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet("color:#0BDABF;\n"
+        self.loginBtn.setFont(font)
+        self.loginBtn.setStyleSheet("color:#0BDABF;\n"
 "border:none;\n"
 "")
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.gridLayout_4.addWidget(self.pushButton_4, 1, 1, 1, 1, QtCore.Qt.AlignLeft)
-        self.gridLayout_2.addWidget(self.frame_6, 1, 1, 1, 1)
-        self.comboBox = QtWidgets.QComboBox(self.frame_2)
-        self.comboBox.setMinimumSize(QtCore.QSize(0, 70))
-        self.comboBox.setStyleSheet("border:none;\n"
-"border-bottom:2px solid black;")
-        self.comboBox.setObjectName("comboBox")
-        self.gridLayout_2.addWidget(self.comboBox, 5, 1, 1, 1)
-        self.textEdit = QtWidgets.QTextEdit(self.frame_2)
-        self.textEdit.setMaximumSize(QtCore.QSize(500, 70))
+        self.loginBtn.setObjectName("loginBtn")
+        self.gridLayout_4.addWidget(self.loginBtn, 1, 1, 1, 1, QtCore.Qt.AlignLeft)
+        self.gridLayout_2.addWidget(self.frame_6, 1, 1, 1, 3)
+        self.frame_7 = QtWidgets.QFrame(self.frame_2)
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.gridLayout_2.addWidget(self.frame_7, 15, 1, 1, 3)
+        self.frame_13 = QtWidgets.QFrame(self.frame_2)
+        self.frame_13.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_13.setObjectName("frame_13")
+        self.gridLayout_2.addWidget(self.frame_13, 6, 1, 1, 1)
+        self.userEmailInput = QtWidgets.QLineEdit(self.frame_2)
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(14)
-        self.textEdit.setFont(font)
-        self.textEdit.setStyleSheet("border:none;\n"
-"border-bottom:2px solid black;")
-        self.textEdit.setObjectName("textEdit")
-        self.gridLayout_2.addWidget(self.textEdit, 3, 1, 1, 1)
-        self.pushButton_2 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_2.setMinimumSize(QtCore.QSize(0, 60))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("/* Normal state styling */\n"
-"QPushButton#pushButton_2 {\n"
-"    color: white;\n"
-"    background: #0BDABF;\n"
-"    border: 2px solid #0BDABF;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px 10px;\n"
-"}\n"
-"\n"
-"/* Hover state styling */\n"
-"QPushButton#pushButton_2:hover {\n"
-"    background: #08A79D; /* Change the color for hover effect */\n"
-"}\n"
-"\n"
-"/* Advanced styling */\n"
-"QPushButton#pushButton_2:pressed {\n"
-"    background: #067267; /* Change the color for pressed effect */\n"
-"    border: 2px solid #067267;\n"
-"}\n"
-"\n"
-"/* Add any other advanced styling here */\n"
-"\n"
-"")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.gridLayout_2.addWidget(self.pushButton_2, 7, 1, 1, 1)
-        self.textEdit_3 = QtWidgets.QTextEdit(self.frame_2)
-        self.textEdit_3.setMaximumSize(QtCore.QSize(500, 70))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(14)
-        self.textEdit_3.setFont(font)
-        self.textEdit_3.setStyleSheet("border:none;\n"
-"border-bottom:2px solid black;")
-        self.textEdit_3.setObjectName("textEdit_3")
-        self.gridLayout_2.addWidget(self.textEdit_3, 2, 1, 1, 1)
-        self.checkBox = QtWidgets.QCheckBox(self.frame_2)
-        self.checkBox.setMaximumSize(QtCore.QSize(800, 40))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
-        self.checkBox.setFont(font)
-        self.checkBox.setObjectName("checkBox")
-        self.gridLayout_2.addWidget(self.checkBox, 4, 1, 1, 1)
-        self.frame_4 = QtWidgets.QFrame(self.frame_2)
-        self.frame_4.setMinimumSize(QtCore.QSize(50, 0))
-        self.frame_4.setMaximumSize(QtCore.QSize(16777215, 600))
-        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_4.setObjectName("frame_4")
-        self.gridLayout_2.addWidget(self.frame_4, 0, 2, 9, 1)
+        self.userEmailInput.setFont(font)
+        self.userEmailInput.setStyleSheet("border:none;\n"
+"border-bottom:2px solid black;")
+        self.userEmailInput.setText("")
+        self.userEmailInput.setObjectName("userEmailInput")
+        self.gridLayout_2.addWidget(self.userEmailInput, 4, 1, 1, 1)
+        self.userPasswordInput_2 = QtWidgets.QLineEdit(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.userPasswordInput_2.setFont(font)
+        self.userPasswordInput_2.setStyleSheet("border:none;\n"
+"border-bottom:2px solid black;")
+        self.userPasswordInput_2.setText("")
+        self.userPasswordInput_2.setObjectName("userPasswordInput_2")
+        self.gridLayout_2.addWidget(self.userPasswordInput_2, 9, 1, 1, 1)
+        self.userPasswordInput = QtWidgets.QLineEdit(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.userPasswordInput.setFont(font)
+        self.userPasswordInput.setStyleSheet("border:none;\n"
+"border-bottom:2px solid black;")
+        self.userPasswordInput.setText("")
+        self.userPasswordInput.setObjectName("userPasswordInput")
+        self.gridLayout_2.addWidget(self.userPasswordInput, 7, 1, 1, 1)
         self.gridLayout.addWidget(self.frame_2, 0, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -200,9 +247,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.signUpBtn.setText(_translate("MainWindow", "Signup"))
+        self.showPasswordBtn.setText(_translate("MainWindow", "Show Password"))
         self.label.setText(_translate("MainWindow", "Signup Now"))
         self.label_2.setText(_translate("MainWindow", "Already have an account?"))
-        self.pushButton_4.setText(_translate("MainWindow", "Login Here"))
-        self.pushButton_2.setText(_translate("MainWindow", "Signup"))
-        self.checkBox.setText(_translate("MainWindow", "Show Password"))
+        self.loginBtn.setText(_translate("MainWindow", "Login Here"))
 import resource_rc
