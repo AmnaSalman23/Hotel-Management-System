@@ -1,5 +1,11 @@
 <RCC>
   <qresource prefix="images">
+    <file>Images/icons8-service-80.png</file>
+    <file>Images/icons8-audit-80.png</file>
+    <file>Images/icons8-reservation-100.png</file>
+    <file>Images/icons8-check-out-100.png</file>
+    <file>Images/icons8-check-in-98.png</file>
+    <file>Images/users.png</file>
     <file>Images/logoutImage.png</file>
     <file>Images/icons8-close-128.png</file>
     <file>Images/icons8-hamburger-100.png</file>

@@ -49,38 +49,6 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="2" rowspan="3">
-        <widget class="QFrame" name="frame_4">
-         <property name="minimumSize">
-          <size>
-           <width>50</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QFrame" name="frame_12">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="1">
         <widget class="QFrame" name="frame_8">
          <property name="maximumSize">
@@ -113,6 +81,38 @@
            </widget>
           </item>
          </layout>
+        </widget>
+       </item>
+       <item row="0" column="2" rowspan="3">
+        <widget class="QFrame" name="frame_4">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QFrame" name="frame_12">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
         </widget>
        </item>
        <item row="1" column="1">
@@ -247,7 +247,7 @@ border-bottom:2px solid black;</string>
          </widget>
         </widget>
        </item>
-       <item row="7" column="1">
+       <item row="8" column="1">
         <widget class="QFrame" name="frame_7">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -257,7 +257,7 @@ border-bottom:2px solid black;</string>
          </property>
         </widget>
        </item>
-       <item row="6" column="1">
+       <item row="7" column="1">
         <widget class="QFrame" name="frame_9">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -319,21 +319,6 @@ QPushButton#loginBtn:pressed {
          </widget>
         </widget>
        </item>
-       <item row="5" column="1">
-        <widget class="QCheckBox" name="showPasswordBtn">
-         <property name="font">
-          <font>
-           <family>Roboto</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Show Password</string>
-         </property>
-        </widget>
-       </item>
        <item row="4" column="1">
         <widget class="QLineEdit" name="userPasswordInput">
          <property name="font">
@@ -351,6 +336,58 @@ border-bottom:2px solid black;</string>
          <property name="text">
           <string/>
          </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="showPasswordBtn">
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Show Password</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="signInRole">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Roboto</family>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border:none;
+border-bottom:2px solid black;</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Guest</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Manager</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Front Desk</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>

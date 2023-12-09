@@ -738,6 +738,8 @@ class MainUIClass(QMainWindow):
         # self.ui.navBar.setText(">" if self.sidebar_visible else "<")
         self.ui.managePaymentsBtn.setText("Payments" if self.sidebar_visible else "")
         self.ui.label.setText("InnSync" if self.sidebar_visible else "Inn\nSync")
+        self.ui.profilePageBtn.setText("Profile" if self.sidebar_visible else "")
+        self.ui.logoutBtn.setText("Logut" if self.sidebar_visible else "")
         # self.ui.pushButton.setFixedWidth(50 if self.sidebar_visible else 0)
         
         self.ui.navBar.setIcon(QIcon(QPixmap("images/icons8-close-128.png").scaled(60,60)) if self.sidebar_visible else QIcon("images/icons8-hamburger-100.png"))
