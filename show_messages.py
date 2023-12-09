@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMessageBox
 
-def show_error_message(self, message):
+def show_error_message( message):
         error_dialog = QMessageBox()
         error_dialog.setIcon(QMessageBox.Critical)
         error_dialog.setText(f"<b>Error:</b> {message}")
@@ -8,7 +8,7 @@ def show_error_message(self, message):
         error_dialog.setStandardButtons(QMessageBox.Ok)
         error_dialog.exec_()
 
-def show_success_message(self, message):
+def show_success_message( message):
         success_dialog = QMessageBox()
         success_dialog.setIcon(QMessageBox.Information)
         success_dialog.setText(f"<b>Success:</b> {message}")
