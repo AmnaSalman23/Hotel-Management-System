@@ -88,6 +88,30 @@ class Ui_MainWindow(object):
         self.manageUsersBtn.setIconSize(QtCore.QSize(50, 50))
         self.manageUsersBtn.setObjectName("manageUsersBtn")
         self.verticalLayout.addWidget(self.manageUsersBtn, 0, QtCore.Qt.AlignLeft)
+        self.manageRoomBtn = QtWidgets.QPushButton(self.frame_4)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.manageRoomBtn.setFont(font)
+        self.manageRoomBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.manageRoomBtn.setStyleSheet("QPushButton {\n"
+"    color: white;\n"
+"    background-color: #0BDABF;\n"
+"    padding: 15px;\n"
+"    border: none;\n"
+"    text-align: center;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #16E2CB;\n"
+"}\n"
+"")
+        self.manageRoomBtn.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/images/Images/booking room.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.manageRoomBtn.setIcon(icon2)
+        self.manageRoomBtn.setIconSize(QtCore.QSize(40, 40))
+        self.manageRoomBtn.setObjectName("manageRoomBtn")
+        self.verticalLayout.addWidget(self.manageRoomBtn, 0, QtCore.Qt.AlignLeft)
         self.backupDatabaseNavigate = QtWidgets.QPushButton(self.frame_4)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -106,9 +130,9 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.backupDatabaseNavigate.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/images/Images/booking room.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.backupDatabaseNavigate.setIcon(icon2)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/images/Images/icons8-backup-100.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.backupDatabaseNavigate.setIcon(icon3)
         self.backupDatabaseNavigate.setIconSize(QtCore.QSize(40, 40))
         self.backupDatabaseNavigate.setObjectName("backupDatabaseNavigate")
         self.verticalLayout.addWidget(self.backupDatabaseNavigate, 0, QtCore.Qt.AlignLeft)
@@ -130,9 +154,9 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.profilePageBtn.setText("")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/images/Images/man-line-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.profilePageBtn.setIcon(icon3)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/images/Images/man-line-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.profilePageBtn.setIcon(icon4)
         self.profilePageBtn.setIconSize(QtCore.QSize(40, 40))
         self.profilePageBtn.setObjectName("profilePageBtn")
         self.verticalLayout.addWidget(self.profilePageBtn, 0, QtCore.Qt.AlignLeft)
@@ -164,9 +188,9 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.logoutBtn.setText("")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/images/Images/logoutImage.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.logoutBtn.setIcon(icon4)
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(":/images/Images/logoutImage.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.logoutBtn.setIcon(icon5)
         self.logoutBtn.setIconSize(QtCore.QSize(40, 40))
         self.logoutBtn.setObjectName("logoutBtn")
         self.verticalLayout.addWidget(self.logoutBtn, 0, QtCore.Qt.AlignLeft)
@@ -188,9 +212,9 @@ class Ui_MainWindow(object):
         self.navBar.setMinimumSize(QtCore.QSize(50, 50))
         self.navBar.setMaximumSize(QtCore.QSize(50, 50))
         self.navBar.setStyleSheet("border:none;")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(":/images/Images/icons8-hamburger-100.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.navBar.setIcon(icon5)
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap(":/images/Images/icons8-hamburger-100.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.navBar.setIcon(icon6)
         self.navBar.setIconSize(QtCore.QSize(50, 50))
         self.navBar.setObjectName("navBar")
         self.gridLayout.addWidget(self.navBar, 0, 0, 1, 1, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
@@ -803,24 +827,272 @@ class Ui_MainWindow(object):
         self.gridLayout_14.addWidget(self.frame_16, 0, 0, 1, 1)
         self.gridLayout_12.addWidget(self.frame_13, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.manageStaffPage)
-        self.manageServicePage = QtWidgets.QWidget()
-        self.manageServicePage.setObjectName("manageServicePage")
-        self.gridLayout_13 = QtWidgets.QGridLayout(self.manageServicePage)
+        self.manageRoomsPage = QtWidgets.QWidget()
+        self.manageRoomsPage.setObjectName("manageRoomsPage")
+        self.gridLayout_13 = QtWidgets.QGridLayout(self.manageRoomsPage)
         self.gridLayout_13.setObjectName("gridLayout_13")
-        self.frame_14 = QtWidgets.QFrame(self.manageServicePage)
+        self.frame_14 = QtWidgets.QFrame(self.manageRoomsPage)
         self.frame_14.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_14.setObjectName("frame_14")
-        self.gridLayout_13.addWidget(self.frame_14, 0, 1, 1, 1)
-        self.frame_40 = QtWidgets.QFrame(self.manageServicePage)
-        self.frame_40.setMaximumSize(QtCore.QSize(400, 110))
-        self.frame_40.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_40.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_40.setObjectName("frame_40")
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.frame_40)
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.gridLayout_13.addWidget(self.frame_40, 1, 0, 1, 1)
-        self.stackedWidget.addWidget(self.manageServicePage)
+        self.gridLayout_22 = QtWidgets.QGridLayout(self.frame_14)
+        self.gridLayout_22.setObjectName("gridLayout_22")
+        self.frame_17 = QtWidgets.QFrame(self.frame_14)
+        self.frame_17.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_17.setObjectName("frame_17")
+        self.gridLayout_23 = QtWidgets.QGridLayout(self.frame_17)
+        self.gridLayout_23.setObjectName("gridLayout_23")
+        self.frame_51 = QtWidgets.QFrame(self.frame_17)
+        self.frame_51.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_51.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_51.setObjectName("frame_51")
+        self.gridLayout_23.addWidget(self.frame_51, 1, 0, 1, 2)
+        self.frame_18 = QtWidgets.QFrame(self.frame_17)
+        self.frame_18.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_18.setObjectName("frame_18")
+        self.gridLayout_23.addWidget(self.frame_18, 3, 0, 1, 2)
+        self.frame_52 = QtWidgets.QFrame(self.frame_17)
+        self.frame_52.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_52.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_52.setObjectName("frame_52")
+        self.gridLayout_23.addWidget(self.frame_52, 10, 0, 1, 2)
+        self.frame_50 = QtWidgets.QFrame(self.frame_17)
+        self.frame_50.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_50.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_50.setObjectName("frame_50")
+        self.gridLayout_23.addWidget(self.frame_50, 12, 0, 1, 2)
+        self.frame_30 = QtWidgets.QFrame(self.frame_17)
+        self.frame_30.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_30.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_30.setObjectName("frame_30")
+        self.gridLayout_23.addWidget(self.frame_30, 8, 0, 1, 2)
+        self.frame_19 = QtWidgets.QFrame(self.frame_17)
+        self.frame_19.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_19.setObjectName("frame_19")
+        self.gridLayout_23.addWidget(self.frame_19, 4, 1, 1, 2)
+        self.occupancyLimitInput = QtWidgets.QComboBox(self.frame_17)
+        self.occupancyLimitInput.setMinimumSize(QtCore.QSize(0, 40))
+        self.occupancyLimitInput.setMaximumSize(QtCore.QSize(400, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.occupancyLimitInput.setFont(font)
+        self.occupancyLimitInput.setStyleSheet("border:none;\n"
+"border-bottom:2px solid black;")
+        self.occupancyLimitInput.setObjectName("occupancyLimitInput")
+        self.occupancyLimitInput.addItem("")
+        self.occupancyLimitInput.addItem("")
+        self.occupancyLimitInput.addItem("")
+        self.occupancyLimitInput.addItem("")
+        self.occupancyLimitInput.addItem("")
+        self.gridLayout_23.addWidget(self.occupancyLimitInput, 9, 0, 1, 1)
+        self.comboBox_2 = QtWidgets.QComboBox(self.frame_17)
+        self.comboBox_2.setMinimumSize(QtCore.QSize(0, 40))
+        self.comboBox_2.setMaximumSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(12)
+        self.comboBox_2.setFont(font)
+        self.comboBox_2.setStyleSheet("border:none;\n"
+"border-bottom:2px solid black;")
+        self.comboBox_2.setObjectName("comboBox_2")
+        self.comboBox_2.addItem("")
+        self.gridLayout_23.addWidget(self.comboBox_2, 8, 2, 3, 1)
+        self.addRoomBtn = QtWidgets.QPushButton(self.frame_17)
+        self.addRoomBtn.setMinimumSize(QtCore.QSize(200, 60))
+        self.addRoomBtn.setMaximumSize(QtCore.QSize(200, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.addRoomBtn.setFont(font)
+        self.addRoomBtn.setStyleSheet("/* Normal state styling */\n"
+"QPushButton#addRoomBtn {\n"
+"    color: white;\n"
+"    background: #0BDABF;\n"
+"    border: 2px solid #0BDABF;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px 10px;\n"
+"}\n"
+"\n"
+"/* Hover state styling */\n"
+"QPushButton#addRoomBtn:hover {\n"
+"    background: #08A79D; /* Change the color for hover effect */\n"
+"}\n"
+"\n"
+"/* Advanced styling */\n"
+"QPushButton#addRoomBtn:pressed {\n"
+"    background: #067267; /* Change the color for pressed effect */\n"
+"    border: 2px solid #067267;\n"
+"}\n"
+"\n"
+"/* Add any other advanced styling here */\n"
+"\n"
+"")
+        self.addRoomBtn.setObjectName("addRoomBtn")
+        self.gridLayout_23.addWidget(self.addRoomBtn, 11, 2, 1, 1)
+        self.label_14 = QtWidgets.QLabel(self.frame_17)
+        self.label_14.setMaximumSize(QtCore.QSize(16777215, 60))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_14.setFont(font)
+        self.label_14.setObjectName("label_14")
+        self.gridLayout_23.addWidget(self.label_14, 13, 0, 1, 1)
+        self.label_15 = QtWidgets.QLabel(self.frame_17)
+        self.label_15.setMaximumSize(QtCore.QSize(16777215, 60))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_15.setFont(font)
+        self.label_15.setObjectName("label_15")
+        self.gridLayout_23.addWidget(self.label_15, 2, 0, 1, 1)
+        self.roomTypeInput = QtWidgets.QComboBox(self.frame_17)
+        self.roomTypeInput.setMinimumSize(QtCore.QSize(0, 40))
+        self.roomTypeInput.setMaximumSize(QtCore.QSize(400, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.roomTypeInput.setFont(font)
+        self.roomTypeInput.setStyleSheet("border:none;\n"
+"border-bottom:2px solid black;")
+        self.roomTypeInput.setObjectName("roomTypeInput")
+        self.roomTypeInput.addItem("")
+        self.roomTypeInput.addItem("")
+        self.roomTypeInput.addItem("")
+        self.gridLayout_23.addWidget(self.roomTypeInput, 7, 0, 1, 1)
+        self.label_6 = QtWidgets.QLabel(self.frame_17)
+        self.label_6.setMaximumSize(QtCore.QSize(16777215, 60))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_6.setFont(font)
+        self.label_6.setObjectName("label_6")
+        self.gridLayout_23.addWidget(self.label_6, 0, 0, 1, 1)
+        self.deleteRoomBtn = QtWidgets.QPushButton(self.frame_17)
+        self.deleteRoomBtn.setMinimumSize(QtCore.QSize(200, 60))
+        self.deleteRoomBtn.setMaximumSize(QtCore.QSize(200, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.deleteRoomBtn.setFont(font)
+        self.deleteRoomBtn.setStyleSheet("/* Normal state styling */\n"
+"QPushButton#deleteRoomBtn {\n"
+"    color: white;\n"
+"    background: #0BDABF;\n"
+"    border: 2px solid #0BDABF;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px 10px;\n"
+"}\n"
+"\n"
+"/* Hover state styling */\n"
+"QPushButton#deleteRoomBtn:hover {\n"
+"    background: #08A79D; /* Change the color for hover effect */\n"
+"}\n"
+"\n"
+"/* Advanced styling */\n"
+"QPushButton#deleteRoomBtn:pressed {\n"
+"    background: #067267; /* Change the color for pressed effect */\n"
+"    border: 2px solid #067267;\n"
+"}\n"
+"\n"
+"/* Add any other advanced styling here */\n"
+"\n"
+"")
+        self.deleteRoomBtn.setObjectName("deleteRoomBtn")
+        self.gridLayout_23.addWidget(self.deleteRoomBtn, 15, 0, 1, 1)
+        self.updateRoomBtn = QtWidgets.QPushButton(self.frame_17)
+        self.updateRoomBtn.setMinimumSize(QtCore.QSize(0, 60))
+        self.updateRoomBtn.setMaximumSize(QtCore.QSize(200, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.updateRoomBtn.setFont(font)
+        self.updateRoomBtn.setStyleSheet("/* Normal state styling */\n"
+"QPushButton#updateRoomBtn {\n"
+"    color: white;\n"
+"    background: #0BDABF;\n"
+"    border: 2px solid #0BDABF;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px 10px;\n"
+"}\n"
+"\n"
+"/* Hover state styling */\n"
+"QPushButton#updateRoomBtn:hover {\n"
+"    background: #08A79D; /* Change the color for hover effect */\n"
+"}\n"
+"\n"
+"/* Advanced styling */\n"
+"QPushButton#updateRoomBtn:pressed {\n"
+"    background: #067267; /* Change the color for pressed effect */\n"
+"    border: 2px solid #067267;\n"
+"}\n"
+"\n"
+"/* Add any other advanced styling here */\n"
+"\n"
+"")
+        self.updateRoomBtn.setObjectName("updateRoomBtn")
+        self.gridLayout_23.addWidget(self.updateRoomBtn, 15, 2, 1, 1)
+        self.roomNoInput = QtWidgets.QLineEdit(self.frame_17)
+        self.roomNoInput.setMaximumSize(QtCore.QSize(400, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.roomNoInput.setFont(font)
+        self.roomNoInput.setStyleSheet("border:none;\n"
+"border-bottom:2px solid black;")
+        self.roomNoInput.setText("")
+        self.roomNoInput.setObjectName("roomNoInput")
+        self.gridLayout_23.addWidget(self.roomNoInput, 5, 0, 1, 1)
+        self.frame_25 = QtWidgets.QFrame(self.frame_17)
+        self.frame_25.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_25.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_25.setObjectName("frame_25")
+        self.gridLayout_23.addWidget(self.frame_25, 6, 0, 1, 1)
+        self.allRoomsTable = QtWidgets.QTableWidget(self.frame_17)
+        self.allRoomsTable.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.allRoomsTable.setObjectName("allRoomsTable")
+        self.allRoomsTable.setColumnCount(5)
+        self.allRoomsTable.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.allRoomsTable.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.allRoomsTable.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.allRoomsTable.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.allRoomsTable.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.allRoomsTable.setHorizontalHeaderItem(4, item)
+        self.allRoomsTable.horizontalHeader().setCascadingSectionResizes(False)
+        self.allRoomsTable.horizontalHeader().setSortIndicatorShown(False)
+        self.allRoomsTable.horizontalHeader().setStretchLastSection(False)
+        self.allRoomsTable.verticalHeader().setCascadingSectionResizes(False)
+        self.allRoomsTable.verticalHeader().setSortIndicatorShown(False)
+        self.gridLayout_23.addWidget(self.allRoomsTable, 14, 0, 1, 3)
+        self.gridLayout_22.addWidget(self.frame_17, 0, 0, 1, 1)
+        self.gridLayout_13.addWidget(self.frame_14, 0, 0, 2, 2)
+        self.stackedWidget.addWidget(self.manageRoomsPage)
         self.manageDatabaseBackupPage = QtWidgets.QWidget()
         self.manageDatabaseBackupPage.setObjectName("manageDatabaseBackupPage")
         self.gridLayout_18 = QtWidgets.QGridLayout(self.manageDatabaseBackupPage)
@@ -1041,7 +1313,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1053,7 +1325,7 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "Dashboard"))
         self.totla_users_label.setText(_translate("MainWindow", "750"))
         self.label_9.setText(_translate("MainWindow", "Amount of residents"))
-        self.label_10.setText(_translate("MainWindow", "Active Users"))
+        self.label_10.setText(_translate("MainWindow", "Available Rooms"))
         self.label_13.setText(_translate("MainWindow", "500"))
         self.label_11.setText(_translate("MainWindow", "Kicked Users"))
         self.label_12.setText(_translate("MainWindow", "150"))
@@ -1078,16 +1350,41 @@ class Ui_MainWindow(object):
         item = self.showAllUsers.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "ID"))
         item = self.showAllUsers.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Name"))
+        item.setText(_translate("MainWindow", "Room No"))
         item = self.showAllUsers.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Email"))
+        item.setText(_translate("MainWindow", "Room Type"))
         item = self.showAllUsers.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Password"))
+        item.setText(_translate("MainWindow", "Occupancy"))
         item = self.showAllUsers.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Role"))
+        item.setText(_translate("MainWindow", "Availability"))
         self.comboBox_6.setItemText(0, _translate("MainWindow", "Guest"))
         self.comboBox_6.setItemText(1, _translate("MainWindow", "Manager"))
         self.comboBox_6.setItemText(2, _translate("MainWindow", "Front Desk"))
+        self.occupancyLimitInput.setItemText(0, _translate("MainWindow", "Occupency Limit"))
+        self.occupancyLimitInput.setItemText(1, _translate("MainWindow", "1"))
+        self.occupancyLimitInput.setItemText(2, _translate("MainWindow", "2"))
+        self.occupancyLimitInput.setItemText(3, _translate("MainWindow", "3"))
+        self.occupancyLimitInput.setItemText(4, _translate("MainWindow", "4"))
+        self.comboBox_2.setItemText(0, _translate("MainWindow", "Role"))
+        self.addRoomBtn.setText(_translate("MainWindow", "Add Room"))
+        self.label_14.setText(_translate("MainWindow", "All Rooms"))
+        self.label_15.setText(_translate("MainWindow", "Add Room:"))
+        self.roomTypeInput.setItemText(0, _translate("MainWindow", "Room Type"))
+        self.roomTypeInput.setItemText(1, _translate("MainWindow", "Single Room"))
+        self.roomTypeInput.setItemText(2, _translate("MainWindow", "Double Room"))
+        self.label_6.setText(_translate("MainWindow", "Manage Rooms"))
+        self.deleteRoomBtn.setText(_translate("MainWindow", "Delete"))
+        self.updateRoomBtn.setText(_translate("MainWindow", "Update"))
+        item = self.allRoomsTable.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "ID"))
+        item = self.allRoomsTable.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Name"))
+        item = self.allRoomsTable.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Email"))
+        item = self.allRoomsTable.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Password"))
+        item = self.allRoomsTable.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Role"))
         self.backupDatabaseBtn.setText(_translate("MainWindow", "Backup Database"))
         self.label_17.setText(_translate("MainWindow", "Database Backup"))
         self.label_35.setText(_translate("MainWindow", "User Profile"))

@@ -1679,7 +1679,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1691,7 +1691,7 @@ class Ui_MainWindow(object):
         self.label_16.setText(_translate("MainWindow", "Dashboard"))
         self.label_24.setText(_translate("MainWindow", "750"))
         self.label_25.setText(_translate("MainWindow", "Total Users"))
-        self.label_26.setText(_translate("MainWindow", "Active Users"))
+        self.label_26.setText(_translate("MainWindow", "Available Rooms"))
         self.label_27.setText(_translate("MainWindow", "500"))
         self.label_28.setText(_translate("MainWindow", "Kicked Users"))
         self.label_29.setText(_translate("MainWindow", "150"))

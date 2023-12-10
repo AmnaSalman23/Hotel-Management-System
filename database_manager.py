@@ -130,7 +130,9 @@ class DatabaseManager:
         except sqlite3.Error as e:
             print(f"SQLite error: {e}")
             return False  # Failed to add guest and assign room
-        
+    def add_room(self, room_number, room_type, occupancy_limit, availability_status):
+        query = "INSERT INTO Rooms (room_number, room_type, occupancy_limit, availability_status) VALUES (?, ?, ?, ?)"
+        self.execute_query(query, (room_number, room_type, occupancy_limit, availability_status))
     def delete_guest(self, guest_id):
         try:
             # Check if the guest exists

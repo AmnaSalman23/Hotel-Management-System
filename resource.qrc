@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="images">
+    <file>Images/icons8-backup-100.png</file>
     <file>Images/icons8-service-80.png</file>
     <file>Images/icons8-audit-80.png</file>
     <file>Images/icons8-reservation-100.png</file>

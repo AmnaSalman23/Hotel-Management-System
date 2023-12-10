@@ -174,6 +174,14 @@ class FrontDeskLandingPage(QMainWindow):
         global LoggedUserPassword
         self.ui.userProfilePassword.setText(LoggedUserPassword)
         self.ui.addReservationBtn.clicked.connect(self.add_reservation)
+        self.get_all_users()
+        self.get_all_rooms()
+
+
+    def get_all_users(self):
+        users = self.database_manager.fetch_all('''SELECT * FROM Users''')
+        self.ui.label_24.setText(str(len(users)))
+        # return users
     
     # def show_all_guests(self):
 
@@ -193,9 +201,10 @@ class FrontDeskLandingPage(QMainWindow):
             SELECT
                 Rooms.room_number
             FROM Rooms
+            Where Rooms.availability_status = "Available"
         ''')
-        self.ui.roomInput.addItems([str(room[0]) for room in rooms])
-        return rooms
+        self.ui.label_27.setText(str(len(rooms)))
+        # return rooms
     
     def get_all_room_types(self):
         room_types = self.database_manager.fetch_all('''
@@ -305,11 +314,12 @@ class MainUIClass(QMainWindow):
         self.ui.setupUi(self)
 
         self.ui.dashboardBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.Dashboard))
+        self.ui.manageRoomBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageRoomsPage))
         # PAGE 2 Settings Page
         self.ui.manageUsersBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageStaffPage))
         self.ui.profilePageBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.userProfile))
         self.ui.backupDatabaseNavigate.clicked.connect(lambda:self.ui.stackedWidget.setCurrentWidget(self.ui.manageDatabaseBackupPage))
-        self.ui.backupDatabaseBtn.clicked.connect(self.backup_database)
+        # self.ui.backupDatabaseBtn.clicked.connect(self.backup_database)
         self.ui.addUserBtn.clicked.connect(self.add_user)
         self.ui.navBar.clicked.connect(self.toggle_sidebar)
         self.ui.updateProfileBtn.clicked.connect(self.edit_username_and_password)
@@ -324,6 +334,13 @@ class MainUIClass(QMainWindow):
         self.ui.userProfileName.setPlaceholderText("Name")
         self.ui.userProfilePassword.setPlaceholderText("Password")
         self.ui.totla_users_label.setText(str(self.all_users()))
+        self.ui.roomNoInput.setPlaceholderText("Room Number")
+        self.ui.roomTypeInput.setPlaceholderText("Room Type")
+        self.ui.occupancyLimitInput.setPlaceholderText("Occupancy Limit")
+        self.set_available_no_of_rooms()
+        self.ui.addRoomBtn.clicked.connect(self.add_room)
+        self.ui.deleteRoomBtn.clicked.connect(self.delete_selected_room)
+    
         
         global LoggedUserName
         userName=LoggedUserName
@@ -333,7 +350,80 @@ class MainUIClass(QMainWindow):
         self.ui.userProfilePassword.setText(password)
         self.ui.logoutBtn.clicked.connect(self.open_login_page)
         self.sidebar_visible = False
+        self.show_all_rooms_in_table()
 
+    def show_all_rooms_in_table(self):
+        # Assuming self.database_manager.fetch_all() returns a list of tuples
+        sample_data = self.database_manager.fetch_all('''
+            SELECT
+                Rooms.room_id,
+                Rooms.room_number,
+                Rooms.room_type,
+                Rooms.occupancy_limit,
+                Rooms.availability_status
+            FROM Rooms
+        ''')
+
+        # Clear existing data in the table
+        self.ui.allRoomsTable.setRowCount(0)
+
+        if len(sample_data) > 0:
+            # Set the number of rows and columns in the table
+            self.ui.allRoomsTable.setRowCount(len(sample_data))
+            self.ui.allRoomsTable.setColumnCount(len(sample_data[0]))
+
+            # Populate the table with data
+            for row_num, row_data in enumerate(sample_data):
+                for col_num, col_data in enumerate(row_data):
+                    item = QTableWidgetItem(str(col_data))
+                    self.ui.allRoomsTable.setItem(row_num, col_num, item)
+
+        else:
+            # If there is no data, set columns to 0
+            self.ui.showAllRoomsTable.setColumnCount(0)
+
+    def delete_selected_room(self):
+        if hasattr(self, 'selected_row_data') and self.selected_row_data:
+            reply = QMessageBox.question(
+                self,
+                'Delete Row',
+                f'Do you want to delete the selected row {self.selected_row_data}?',
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.No
+            )
+            if reply == QMessageBox.Yes:
+                try:
+                    # Delete the row from the database
+                    query = "DELETE FROM Rooms WHERE RoomNumber = ? AND RoomType = ?"
+                    self.database_manager.execute_query(query, (self.selected_row_data[0], self.selected_row_data[1]))
+                    print(f"Row {self.selected_row_data} deleted successfully.")
+                except Exception as e:
+                    print(f"An error occurred while deleting the row: {str(e)}")
+                    show_error_message(f"An error occurred while deleting the row: {str(e)}")
+
+    def add_room(self):
+        room_number = self.ui.roomNoInput.text()
+        room_type = self.ui.roomTypeInput.currentText()
+        occupancy_limit = self.ui.occupancyLimitInput.currentText()
+        # Insert the guest into the Guests table
+        self.database_manager.add_room(room_number, room_type, occupancy_limit,"Available")
+        show_success_message("Room added successfully")
+        self.set_available_no_of_rooms()
+        # self.get_all_rooms()
+        # self.get_all_room_types()
+        # self.ui.roomNoInput.setText("")
+        # self.ui.roomTypeInput.setText("")
+        # self.ui.occupancyLimitInput.setText("")
+
+
+    def set_available_no_of_rooms(self):
+        available_rooms = self.database_manager.fetch_all('''
+            SELECT
+                COUNT(Rooms.room_id)
+            FROM Rooms
+            Where Rooms.availability_status = "Available"
+        ''')
+        self.ui.label_13.setText(str(available_rooms[0][0]))
     def edit_username_and_password(self):
         username = self.ui.userProfileName.text()
         password = self.ui.userProfilePassword.text()
@@ -528,12 +618,12 @@ class MainUIClass(QMainWindow):
     def animate_sidebar(self):
 
         self.ui.dashboardBtn.setText("Dashboard" if self.sidebar_visible else "")
-        self.ui.manageUsersBtn.setText("Manage Staff" if self.sidebar_visible else "")
-
+        self.ui.manageUsersBtn.setText("Staff" if self.sidebar_visible else "")
+        self.ui.manageRoomBtn.setText("Rooms" if self.sidebar_visible else "")
         self.ui.backupDatabaseNavigate.setText("Backup" if self.sidebar_visible else "")
         self.ui.label.setText("InnSync" if self.sidebar_visible else "Inn\nSync")
         self.ui.profilePageBtn.setText("Profile" if self.sidebar_visible else "")
-        self.ui.logoutBtn.setText("Logut" if self.sidebar_visible else "")
+        self.ui.logoutBtn.setText("   Logut" if self.sidebar_visible else "")
         self.ui.navBar.setIcon(QIcon(QPixmap("images/icons8-close-128.png").scaled(60,60)) if self.sidebar_visible else QIcon("images/icons8-hamburger-100.png"))
         if self.sidebar_visible:
             time.sleep(0.2)
