@@ -151,9 +151,9 @@ text-align:cneter;</string>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="2" column="0" alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="checkOutBtn">
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QPushButton" name="dashboardBtn_2">
             <property name="font">
              <font>
               <pointsize>12</pointsize>
@@ -181,7 +181,7 @@ QPushButton:hover {
             </property>
             <property name="icon">
              <iconset resource="resource.qrc">
-              <normaloff>:/images/Images/icons8-check-out-100.png</normaloff>:/images/Images/icons8-check-out-100.png</iconset>
+              <normaloff>:/images/Images/dashboard.png</normaloff>:/images/Images/dashboard.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -191,7 +191,7 @@ QPushButton:hover {
             </property>
            </widget>
           </item>
-          <item row="1" column="0" colspan="2" alignment="Qt::AlignLeft">
+          <item>
            <widget class="QPushButton" name="checkInPageBtn">
             <property name="font">
              <font>
@@ -230,7 +230,46 @@ QPushButton:hover {
             </property>
            </widget>
           </item>
-          <item row="4" column="0" alignment="Qt::AlignLeft">
+          <item>
+           <widget class="QPushButton" name="checkOutBtn">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    color: white;
+    background-color: #0BDABF;
+    padding: 15px;
+    border: none;
+    text-align: center;
+}
+
+QPushButton:hover {
+    background-color: #16E2CB;
+}
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="resource.qrc">
+              <normaloff>:/images/Images/icons8-check-out-100.png</normaloff>:/images/Images/icons8-check-out-100.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="guestServicePageBtn">
             <property name="font">
              <font>
@@ -269,7 +308,7 @@ QPushButton:hover {
             </property>
            </widget>
           </item>
-          <item row="5" column="0" alignment="Qt::AlignLeft">
+          <item>
            <widget class="QPushButton" name="userProfileBtn">
             <property name="font">
              <font>
@@ -299,45 +338,6 @@ QPushButton:hover {
             <property name="icon">
              <iconset resource="resource.qrc">
               <normaloff>:/images/Images/man-line-icon.png</normaloff>:/images/Images/man-line-icon.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>40</width>
-              <height>40</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0" colspan="2" alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="dashboardBtn_2">
-            <property name="font">
-             <font>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton {
-    color: white;
-    background-color: #0BDABF;
-    padding: 15px;
-    border: none;
-    text-align: center;
-}
-
-QPushButton:hover {
-    background-color: #16E2CB;
-}
-</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="resource.qrc">
-              <normaloff>:/images/Images/dashboard.png</normaloff>:/images/Images/dashboard.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -418,7 +418,7 @@ QPushButton:hover {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Dashboard_2">
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -2251,468 +2251,10 @@ border-bottom:2px solid black;</string>
        </layout>
       </widget>
       <widget class="QWidget" name="reservationPage">
-       <layout class="QGridLayout" name="gridLayout_8">
-        <item row="0" column="0">
-         <widget class="QFrame" name="frame_66">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_31">
-           <item row="0" column="0">
-            <widget class="QFrame" name="frame_67">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_6">
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_39">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>60</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Roboto</family>
-                  <pointsize>14</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Add Service</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_37">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>60</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Roboto</family>
-                  <pointsize>18</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Manage Services</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="QLineEdit" name="serviceNameInput">
-                <property name="maximumSize">
-                 <size>
-                  <width>500</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Roboto</family>
-                  <pointsize>14</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border:none;
-border-bottom:2px solid black;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QTextEdit" name="textEdit">
-                <property name="maximumSize">
-                 <size>
-                  <width>500</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="0">
-               <widget class="QLineEdit" name="serviceNameInput_2">
-                <property name="maximumSize">
-                 <size>
-                  <width>500</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Roboto</family>
-                  <pointsize>14</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border:none;
-border-bottom:2px solid black;</string>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="12" column="0">
-               <widget class="QLabel" name="label_41">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>60</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Roboto</family>
-                  <pointsize>14</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>All Reservations:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="13" column="0" colspan="2">
-               <widget class="QTableWidget" name="showAllReservations">
-                <property name="selectionBehavior">
-                 <enum>QAbstractItemView::SelectRows</enum>
-                </property>
-                <attribute name="horizontalHeaderCascadingSectionResizes">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="horizontalHeaderStretchLastSection">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="verticalHeaderCascadingSectionResizes">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="verticalHeaderShowSortIndicator" stdset="0">
-                 <bool>false</bool>
-                </attribute>
-                <column>
-                 <property name="text">
-                  <string>ID</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Service Name</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Service Details</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Price</string>
-                 </property>
-                </column>
-               </widget>
-              </item>
-              <item row="14" column="0">
-               <widget class="QPushButton" name="deleteReservationBtn">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>60</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>250</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Roboto</family>
-                  <pointsize>14</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">/* Normal state styling */
-QPushButton#deleteReservationBtn {
-    color: white;
-    background: #0BDABF;
-    border: 2px solid #0BDABF;
-    border-radius: 5px;
-    padding: 5px 10px;
-}
-
-/* Hover state styling */
-QPushButton#deleteReservationBtn:hover {
-    background: #08A79D; /* Change the color for hover effect */
-}
-
-/* Advanced styling */
-QPushButton#deleteReservationBtn:pressed {
-    background: #067267; /* Change the color for pressed effect */
-    border: 2px solid #067267;
-}
-
-/* Add any other advanced styling here */
-
-</string>
-                </property>
-                <property name="text">
-                 <string>Delete</string>
-                </property>
-               </widget>
-              </item>
-              <item row="14" column="1">
-               <widget class="QPushButton" name="updateReservationBtn">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>60</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Roboto</family>
-                  <pointsize>14</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">/* Normal state styling */
-QPushButton#updateReservationBtn {
-    color: white;
-    background: #0BDABF;
-    border: 2px solid #0BDABF;
-    border-radius: 5px;
-    padding: 5px 10px;
-}
-
-/* Hover state styling */
-QPushButton#updateReservationBtn:hover {
-    background: #08A79D; /* Change the color for hover effect */
-}
-
-/* Advanced styling */
-QPushButton#updateReservationBtn:pressed {
-    background: #067267; /* Change the color for pressed effect */
-    border: 2px solid #067267;
-}
-
-/* Add any other advanced styling here */
-
-</string>
-                </property>
-                <property name="text">
-                 <string>Update</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="QFrame" name="frame_31">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QFrame" name="frame_72">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QFrame" name="frame_68">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QFrame" name="frame_69">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0">
-               <widget class="QFrame" name="frame_71">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="11" column="0">
-               <widget class="QFrame" name="frame_70">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="1">
-               <widget class="QFrame" name="frame_9">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_7">
-                 <item row="0" column="0">
-                  <widget class="QFrame" name="frame_81">
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QFrame" name="frame_30">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="11" column="1">
-               <widget class="QPushButton" name="addReservationBtn">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>60</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Roboto</family>
-                  <pointsize>14</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">/* Normal state styling */
-QPushButton#addReservationBtn {
-    color: white;
-    background: #0BDABF;
-    border: 2px solid #0BDABF;
-    border-radius: 5px;
-    padding: 5px 10px;
-}
-
-/* Hover state styling */
-QPushButton#addReservationBtn:hover {
-    background: #08A79D; /* Change the color for hover effect */
-}
-
-/* Advanced styling */
-QPushButton#addReservationBtn:pressed {
-    background: #067267; /* Change the color for pressed effect */
-    border: 2px solid #067267;
-}
-
-/* Add any other advanced styling here */
-
-</string>
-                </property>
-                <property name="text">
-                 <string>Add Service</string>
-                </property>
-               </widget>
-              </item>
-              <item row="10" column="0">
-               <widget class="QFrame" name="frame_82">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>40</height>
-                 </size>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
+       <layout class="QGridLayout" name="gridLayout_8"/>
       </widget>
       <widget class="QWidget" name="servicePage">
        <layout class="QGridLayout" name="gridLayout_10">
-        <item row="0" column="2">
-         <widget class="QFrame" name="frame_12">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="0">
          <widget class="QFrame" name="frame_73">
           <property name="frameShape">
@@ -2721,8 +2263,8 @@ QPushButton#addReservationBtn:pressed {
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <layout class="QGridLayout" name="gridLayout_9">
-           <item row="13" column="2">
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="11" column="1">
             <widget class="QPushButton" name="addServiceBtn">
              <property name="minimumSize">
               <size>
@@ -2774,49 +2316,7 @@ QPushButton#addServiceBtn:pressed {
              </property>
             </widget>
            </item>
-           <item row="9" column="2">
-            <widget class="QComboBox" name="selectedServiceInput">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>40</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Roboto</family>
-               <pointsize>12</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border:none;
-border-bottom:2px solid black;</string>
-             </property>
-             <item>
-              <property name="text">
-               <string>Selected Service</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Meal</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Swimming Pool</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Club</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="11" column="2">
+           <item row="9" column="1">
             <widget class="QComboBox" name="selectedServiceInput_2">
              <property name="minimumSize">
               <size>
@@ -2858,16 +2358,6 @@ border-bottom:2px solid black;</string>
              </item>
             </widget>
            </item>
-           <item row="9" column="3" rowspan="3">
-            <widget class="QFrame" name="frame_26">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_42">
              <property name="maximumSize">
@@ -2889,8 +2379,14 @@ border-bottom:2px solid black;</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="2">
+           <item row="3" column="1">
             <widget class="QLineEdit" name="guestNameInput_2">
+             <property name="minimumSize">
+              <size>
+               <width>500</width>
+               <height>0</height>
+              </size>
+             </property>
              <property name="maximumSize">
               <size>
                <width>500</width>
@@ -2914,7 +2410,7 @@ border-bottom:2px solid black;</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="2">
+           <item row="5" column="1">
             <widget class="QComboBox" name="guestIDInput_2">
              <property name="minimumSize">
               <size>
@@ -2941,67 +2437,49 @@ border-bottom:2px solid black;</string>
              </item>
             </widget>
            </item>
-           <item row="8" column="2">
-            <widget class="QFrame" name="frame_28">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
+           <item row="7" column="1">
+            <widget class="QComboBox" name="selectedServiceInput">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
              </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
+             <property name="font">
+              <font>
+               <family>Roboto</family>
+               <pointsize>12</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
              </property>
+             <property name="styleSheet">
+              <string notr="true">border:none;
+border-bottom:2px solid black;</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Selected Service</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Meal</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Swimming Pool</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Club</string>
+              </property>
+             </item>
             </widget>
            </item>
-           <item row="6" column="2">
-            <widget class="QFrame" name="frame_27">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="2">
-            <widget class="QFrame" name="frame_11">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0" colspan="2">
-            <widget class="QFrame" name="frame_16">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="3">
-            <widget class="QFrame" name="frame_74">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="6">
-            <widget class="QFrame" name="frame_78">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="2">
+           <item row="1" column="1">
             <widget class="QFrame" name="frame_15">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -3011,7 +2489,47 @@ border-bottom:2px solid black;</string>
              </property>
             </widget>
            </item>
-           <item row="12" column="2">
+           <item row="2" column="1">
+            <widget class="QFrame" name="frame_11">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QFrame" name="frame_28">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QFrame" name="frame_27">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QFrame" name="frame_29">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
             <widget class="QFrame" name="frame_13">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -3021,8 +2539,8 @@ border-bottom:2px solid black;</string>
              </property>
             </widget>
            </item>
-           <item row="15" column="1">
-            <widget class="QFrame" name="frame_10">
+           <item row="7" column="2" rowspan="3">
+            <widget class="QFrame" name="frame_26">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -3031,7 +2549,37 @@ border-bottom:2px solid black;</string>
              </property>
             </widget>
            </item>
-           <item row="15" column="2">
+           <item row="7" column="3">
+            <widget class="QFrame" name="frame_24">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="4">
+            <widget class="QFrame" name="frame_23">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="5">
+            <widget class="QFrame" name="frame_17">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="1">
             <widget class="QFrame" name="frame_76">
              <property name="maximumSize">
               <size>
@@ -3047,7 +2595,7 @@ border-bottom:2px solid black;</string>
              </property>
             </widget>
            </item>
-           <item row="16" column="6">
+           <item row="13" column="5">
             <widget class="QFrame" name="frame_80">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -3057,23 +2605,7 @@ border-bottom:2px solid black;</string>
              </property>
             </widget>
            </item>
-           <item row="17" column="2">
-            <widget class="QFrame" name="frame_79">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="18" column="2">
+           <item row="14" column="1">
             <widget class="QFrame" name="frame_77">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -3083,8 +2615,14 @@ border-bottom:2px solid black;</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="6">
-            <widget class="QFrame" name="frame_17">
+           <item row="7" column="0">
+            <widget class="QFrame" name="frame_9">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -3093,38 +2631,14 @@ border-bottom:2px solid black;</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="5">
-            <widget class="QFrame" name="frame_23">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
+           <item row="6" column="2">
+            <widget class="QFrame" name="frame_10">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
              </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0" rowspan="15">
-            <widget class="QFrame" name="frame_75">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="9" column="4">
-            <widget class="QFrame" name="frame_24">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="2">
-            <widget class="QFrame" name="frame_29">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>

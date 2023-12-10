@@ -48,7 +48,17 @@ class DatabaseManager:
             return True  # Successful registration
         except sqlite3.IntegrityError:
             return False  # User with the same username or email already exists
-        
+    
+    def add_feedback(self, customer_id, feedback):
+        query = '''
+            INSERT INTO Feedback (CustomerID, Feedback)
+            VALUES (?, ?)
+        '''
+        try:
+            self.execute_query(query, (customer_id, feedback))
+            return True  # Successful feedback
+        except sqlite3.IntegrityError:
+            return False
     def add_reservation(self, customer_id, room_number, check_in_date, check_out_date):
         query = '''
             INSERT INTO Reservations (CustomerID, RoomNumber, CheckInDate, CheckOutDate)
@@ -76,7 +86,8 @@ class DatabaseManager:
             return result[0]
         return None
     def add_service(self, service_name, description, price):
-        query = "INSERT INTO Services (ServiceName, Description, Price) VALUES (?, ?, ?)"
+        query = "INSERT INTO Services (service_name, Description, Price) VALUES (?, ?, ?)"
+        price = int(price)
         self.execute_query(query, (service_name, description, price))
 
     def insert_booking(self, customer_id, room_number, check_in_datetime, check_out_datetime, is_assured):

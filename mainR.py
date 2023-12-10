@@ -10,7 +10,6 @@ from show_messages import show_error_message, show_success_message
 
 from front_desk import Ui_MainWindow as front
 from customer_landing_page import Ui_MainWindow as cust
-from utils import Utils
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QLineEdit, QPushButton
 from PyQt5.QtWidgets import QMainWindow, QLabel
 import matplotlib.pyplot as plt
@@ -149,7 +148,7 @@ class FrontDeskLandingPage(QMainWindow):
         self.ui.checkInPageBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.checkInPage))
         self.ui.checkOutBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.checkOutPage))
         self.ui.guestServicePageBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.servicePage))
-        self.ui.reservationPageBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.reservationPage))
+        # self.ui.reservationPageBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.reservationPage))
         self.ui.userProfileBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.userProfilePage))
         self.ui.logoutBtn.clicked.connect(self.open_login_page)
         self.ui.guestFirstNameInput.setPlaceholderText("First Name")
@@ -158,9 +157,9 @@ class FrontDeskLandingPage(QMainWindow):
         self.ui.guestPhoneNumber.setPlaceholderText("Phone Number")
         self.ui.guestAdress.setPlaceholderText("Address")
         self.ui.customerNameInput.setPlaceholderText("Guest Name")
-        self.ui.guestNameInput.setPlaceholderText("Guest Name")
+        # self.ui.guestNameInput.setPlaceholderText("Guest Name")
         self.ui.guestNameInput_2.setPlaceholderText("Guest Name")
-        self.ui.selectedServiceQuantity.setPlaceholderText("Quantity")
+        # self.ui.selectedServiceQuantity.setPlaceholderText("Quantity")
         self.ui.userProfileName.setPlaceholderText("Guest Name")
         self.ui.userProfilePassword.setPlaceholderText("Password")
         self.ui.navBar_2.clicked.connect(self.toggle_sidebar)
@@ -168,14 +167,17 @@ class FrontDeskLandingPage(QMainWindow):
         self.ui.addGuestBtn.clicked.connect(self.add_guest)
         self.get_all_rooms()
         self.ui.deleteUserBtn.clicked.connect(self.delete_guest)
-        self.get_all_room_types()
+        self.ui.roomInput.currentIndexChanged.connect(self.get_all_room_types)
+        
+        # self.get_all_room_types()
         global LoggedUserName
         self.ui.userProfileName.setText(LoggedUserName)
         global LoggedUserPassword
         self.ui.userProfilePassword.setText(LoggedUserPassword)
-        self.ui.addReservationBtn.clicked.connect(self.add_reservation)
+        # self.ui.addReservationBtn.clicked.connect(self.add_reservation)
         self.get_all_users()
         self.get_all_rooms()
+        self.show_all_room_numbers_in_combo_box()
 
 
     def get_all_users(self):
@@ -195,6 +197,11 @@ class FrontDeskLandingPage(QMainWindow):
         self.database_manager.add_reservation(guest_name, room_number, check_in_date, check_out_date)
         show_success_message("Reservation added successfully")
         self.show_all_guests()
+
+    def show_all_room_numbers_in_combo_box(self):
+        room_numbers = self.database_manager.fetch_all('''SELECT room_number FROM Rooms''')
+        self.ui.roomInput.addItems([str(room_number[0]) for room_number in room_numbers])
+        return room_numbers
         
     def get_all_rooms(self):
         rooms = self.database_manager.fetch_all('''
@@ -207,11 +214,14 @@ class FrontDeskLandingPage(QMainWindow):
         # return rooms
     
     def get_all_room_types(self):
+        room_number = self.ui.roomInput.currentText()
         room_types = self.database_manager.fetch_all('''
             SELECT
                 Rooms.room_type
             FROM Rooms
-        ''')
+            Where Rooms.room_number = ?
+        ''',(room_number,))
+                                                    
         self.ui.roomInput_2.addItems([str(room_type[0]) for room_type in room_types])
         return room_types
     def delete_guest(self):
@@ -240,7 +250,10 @@ class FrontDeskLandingPage(QMainWindow):
         self.show_all_guests()
         
     def open_login_page(self):
-        Utils.open_login_page(self.database_manager)
+        self.login_form = LoginPageUI(self.database_manager)
+        self.hide()
+        time.sleep(0.2)
+        self.login_form.show()
     def toggle_sidebar(self):
         # Toggle the sidebar visibility
         self.sidebar_visible = False if self.sidebar_visible else True
@@ -315,6 +328,7 @@ class MainUIClass(QMainWindow):
 
         self.ui.dashboardBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.Dashboard))
         self.ui.manageRoomBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageRoomsPage))
+        self.ui.manageSerices.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageServicePage))
         # PAGE 2 Settings Page
         self.ui.manageUsersBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageStaffPage))
         self.ui.profilePageBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.userProfile))
@@ -337,9 +351,14 @@ class MainUIClass(QMainWindow):
         self.ui.roomNoInput.setPlaceholderText("Room Number")
         self.ui.roomTypeInput.setPlaceholderText("Room Type")
         self.ui.occupancyLimitInput.setPlaceholderText("Occupancy Limit")
+        self.ui.serviceNameInput.setPlaceholderText("Service Name")
+        self.ui.servicePriceInput.setPlaceholderText("Service Price")
+        self.ui.serviceDescriptionInput.setPlaceholderText("Service Description")
         self.set_available_no_of_rooms()
         self.ui.addRoomBtn.clicked.connect(self.add_room)
         self.ui.deleteRoomBtn.clicked.connect(self.delete_selected_room)
+        self.ui.addServiceBtn_2.clicked.connect(self.add_service)
+        self.ui.deleteServiceBtn.clicked.connect(self.delete_service)
     
         
         global LoggedUserName
@@ -351,6 +370,77 @@ class MainUIClass(QMainWindow):
         self.ui.logoutBtn.clicked.connect(self.open_login_page)
         self.sidebar_visible = False
         self.show_all_rooms_in_table()
+
+        self.show_services_in_table()
+
+    def delete_service(self):
+        selected_items = self.ui.showAllServicesTable.selectedItems()
+        if selected_items:
+            selected_message = "Selected: "
+            selected_row_data = []
+            for item in selected_items:
+                selected_message += f"{item.text()} "
+                selected_row_data.append(item.text())
+            print(selected_message)
+            self.selected_row_data = selected_row_data
+        if hasattr(self, 'selected_row_data') and self.selected_row_data:
+            reply = QMessageBox.question(
+                self,
+                'Delete Row',
+                f'Do you want to delete the selected row {self.selected_row_data}?',
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.No
+            )
+            if reply == QMessageBox.Yes:
+                try:
+                    # Delete the row from the database
+                    query = "DELETE FROM Services WHERE Service_Name = ? AND Price = ?"
+                    self.database_manager.execute_query(query, (self.selected_row_data[0], self.selected_row_data[2]))
+                    print(f"Row {self.selected_row_data} deleted successfully.")
+                    self.show_services_in_table()
+                except Exception as e:
+                    print(f"An error occurred while deleting the row: {str(e)}")
+                    show_error_message(f"An error occurred while deleting the row: {str(e)}")
+
+    def show_services_in_table(self):
+        # Assuming self.database_manager.fetch_all() returns a list of tuples
+        sample_data = self.database_manager.fetch_all('''
+            SELECT
+                Services.service_name,
+                Services.Description,
+                Services.Price
+            FROM Services
+        ''')
+
+        # Clear existing data in the table
+        self.ui.showAllServicesTable.setRowCount(0)
+
+        if len(sample_data) > 0:
+            # Set the number of rows and columns in the table
+            self.ui.showAllServicesTable.setRowCount(len(sample_data))
+            self.ui.showAllServicesTable.setColumnCount(len(sample_data[0]))
+
+            # Populate the table with data
+            for row_num, row_data in enumerate(sample_data):
+                for col_num, col_data in enumerate(row_data):
+                    item = QTableWidgetItem(str(col_data))
+                    self.ui.showAllServicesTable.setItem(row_num, col_num, item)
+
+        else:
+            # If there is no data, set columns to 0
+            self.ui.showAllServicesTable.setColumnCount(0)
+
+    def add_service(self):
+        service_name = self.ui.serviceNameInput.text()
+        service_price = self.ui.servicePriceInput.text()
+        service_description=self.ui.serviceDescriptionInput.toPlainText()
+        # Insert the guest into the Guests table
+        self.database_manager.add_service(service_name,service_description, service_price)
+        show_success_message("Service added successfully")
+        self.show_services_in_table()
+        # self.ui.serviceNameInput.setText("")
+        # self.ui.servicePriceInput.setText("")
+        # self.show_all_services_in_table()
 
     def show_all_rooms_in_table(self):
         # Assuming self.database_manager.fetch_all() returns a list of tuples
@@ -847,14 +937,92 @@ class CustomerLandingPage(QMainWindow):
 
 
         self.ui.dashboardBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.Dashboard))
-        self.ui.bookRoomBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.bookRoomPage))
+        self.ui.reservationDetails.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.bookRoomPage))
         # self.ui.manageBookingBtn_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.manageBookingPage))
         self.ui.profilePageBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.userProfile))
+        self.ui.userFeedbackBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.feedbackPage))
         # self.ui.managePaymentsBtn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.managePaymentsPage))
         self.ui.navBar.clicked.connect(self.toggle_sidebar)
-        self.ui.bookRoomBtn_3.clicked.connect(self.book_room)
-        self.ui.cancelBookingBtn.clicked.connect(self.cancel_booking)
+        # self.ui.bookRoomBtn_3.clicked.connect(self.book_room)
+        # self.ui.cancelBookingBtn.clicked.connect(self.cancel_booking)
         self.ui.logoutBtn.clicked.connect(self.open_login_page)
+        # self.ui.addFeedbackBtn.clicked.connect(self.add_feedback)
+        self.ui.lineEdit_14.setPlaceholderText("Name")
+        self.ui.lineEdit_15.setPlaceholderText("Password")
+        global LoggedUserName
+        global LoggedUserPassword
+        self.ui.lineEdit_14.setText(LoggedUserName)
+        self.ui.lineEdit_15.setText(LoggedUserPassword)
+        self.show_my_reservations()
+
+    def add_feedback(self):
+        # For example:
+        global LoggedUserName
+        guest_name = LoggedUserName
+        feedback = self.ui.feedbackDetails.toPlainText()
+        # Insert the guest into the Guests table
+        self.database_manager.add_feedback(guest_name, feedback)
+        show_success_message("Feedback added successfully")
+        self.show_all_guests()
+
+    def show_my_reservations(self):
+        global LoggedUserName
+        # Assuming self.database_manager.fetch_all() returns a list of tuples
+        guest_email_result = self.database_manager.fetch_one('''
+            SELECT
+                Users.email
+            FROM Users
+            WHERE Users.username = ?
+        ''', (LoggedUserName,))
+
+        if guest_email_result:
+            guest_email = guest_email_result[0]
+
+            user_id_result = self.database_manager.fetch_one('''
+                SELECT
+                    Guests.guest_id
+                FROM Guests
+                WHERE Guests.email = ?
+            ''', (guest_email,))
+
+            if user_id_result:
+                user_id = user_id_result[0]
+
+                sample_data = self.database_manager.fetch_all('''
+                    SELECT
+                        Rooms.room_number,
+                        Rooms.room_type,
+                        Rooms.occupancy_limit,
+                        Rooms.availability_status,
+                        Reservations.check_in_date,
+                        Reservations.check_out_date
+                    FROM Reservations
+                    LEFT JOIN Rooms ON Reservations.room_id = Rooms.room_id
+                    WHERE Reservations.guest_id = ?
+                ''', (user_id,))
+
+                self.show_sample_data_in_table(sample_data)
+
+    def show_sample_data_in_table(self, sample_data):
+        # Clear existing data in the table
+        self.ui.showAllReservations.setRowCount(0)
+
+        if len(sample_data) > 0:
+            # Set the number of rows and columns in the table
+            self.ui.showAllReservations.setRowCount(len(sample_data))
+            self.ui.showAllReservations.setColumnCount(len(sample_data[0]))
+
+            # Populate the table with data
+            for row_num, row_data in enumerate(sample_data):
+                for col_num, col_data in enumerate(row_data):
+                    item = QTableWidgetItem(str(col_data))
+                    self.ui.showAllReservations.setItem(row_num, col_num, item)
+
+        else:
+            # If there is no data, set columns to 0
+            self.ui.showAllReservations.setColumnCount(0)
+
+
 
     def book_room(self):
         # For example:
@@ -880,9 +1048,10 @@ class CustomerLandingPage(QMainWindow):
 
     def animate_sidebar(self):
         self.ui.dashboardBtn.setText("Dashboard" if self.sidebar_visible else "")
-        self.ui.bookRoomBtn.setText("Book Room" if self.sidebar_visible else "")
+        self.ui.reservationDetails.setText("Reservations" if self.sidebar_visible else "")
         self.ui.profilePageBtn.setText("Profile" if self.sidebar_visible else "")
-        self.ui.logoutBtn.setText("Logut" if self.sidebar_visible else "")
+        self.ui.userFeedbackBtn.setText("Feedback" if self.sidebar_visible else "")
+        self.ui.logoutBtn.setText("Logout" if self.sidebar_visible else "")
         self.ui.label.setText("InnSync" if self.sidebar_visible else "Inn\nSync")        
         self.ui.navBar.setIcon(QIcon(QPixmap("images/icons8-close-128.png").scaled(60,60)) if self.sidebar_visible else QIcon("images/icons8-hamburger-100.png"))
         if self.sidebar_visible:

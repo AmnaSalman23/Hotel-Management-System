@@ -141,12 +141,12 @@ def create_database():
             email TEXT,
             password TEXT,
             role TEXT,
-            guest_id INTEGER,
-            employee_id INTEGER,
-            reservation_id INTEGER,
-            FOREIGN KEY (guest_id) REFERENCES Guests(guest_id),
-            FOREIGN KEY (employee_id) REFERENCES Employees(employee_id),
-            FOREIGN KEY (reservation_id) REFERENCES Reservations(reservation_id)
+            # guest_id INTEGER,
+            # employee_id INTEGER,
+            # reservation_id INTEGER,
+            # FOREIGN KEY (guest_id) REFERENCES Guests(guest_id),
+            # FOREIGN KEY (employee_id) REFERENCES Employees(employee_id),
+            # FOREIGN KEY (reservation_id) REFERENCES Reservations(reservation_id)
         )
     ''')
 
